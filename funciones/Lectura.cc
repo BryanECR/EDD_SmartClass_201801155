@@ -46,6 +46,6 @@ string lectura(string r){
 }
 
 // Separacion de categorias y verificacion de errores
-void validacionDeDatos(string cadena){
-
+void validacionDeDatos(int a[]){
+    
 }
