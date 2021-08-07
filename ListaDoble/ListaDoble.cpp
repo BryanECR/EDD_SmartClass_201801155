@@ -53,60 +53,17 @@ class ListaDoblementeEnlazada{
     }
     
     int sizeDeLaLista(){
-        int contador = 1;
+        int contador = 0;
         if(inicio == NULL){
             cout<<"La lista esta vacia"<<endl;
         }else{
             Nodo* actual = inicio;
-            while(actual->der != NULL){
+            while(actual != NULL){
                 contador+=1;
                 actual = actual->der;
             }
         }
         return contador;
-    }
-
-
-    void borrarElemento(int valor){
-        if(inicio == NULL){
-            cout<<"La lista esta vacia"<<endl;
-
-        }else if(valor == 1){
-            Nodo* borrarInicio = inicio;
-            inicio = inicio->der;
-            inicio->izq == NULL;
-            delete borrarInicio;
-
-        }else if(valor > sizeDeLaLista()){
-            cout<<"El numero ingresado es mayor a la cantidad de elementos en la lista"<<endl;
-
-        }else if(valor == sizeDeLaLista()){
-            Nodo* borrarFin = fin;
-            fin = fin->izq;
-            fin->der = NULL;
-            delete borrarFin;
-
-        }else{
-            Nodo* actual = inicio;
-            Nodo* anterior;
-            Nodo* siguiente;
-            Nodo* borrar;
-            int contador=1;
-
-            while(actual->der != NULL){
-                if(contador == valor){
-                    anterior=actual->izq;
-                    siguiente=actual->der;
-                    borrar = actual;
-                    anterior->der = siguiente;
-                    siguiente->izq = anterior;
-                    delete borrar;
-                    break;
-                }
-                contador+=1;
-                actual=actual->der;
-            }
-        }
     }
 
     int valoresparaModificar(){
@@ -128,7 +85,60 @@ class ListaDoblementeEnlazada{
             return opcion;
         }
     }
-    
+
+    void tareaRealizada(string tarea){
+        if(tarea == "eliminar"){
+            cout<<"Eliminado con Exito"<<endl;
+        }else{
+            cout<<"Modificado con exito"<<endl;
+        }
+
+    }
+
+    void borrarElemento(int valor){
+        if(inicio == NULL){
+            cout<<"La lista esta vacia"<<endl;
+
+        }else if(valor == 1){
+            Nodo* borrarInicio = inicio;
+            inicio = inicio->der;
+            inicio->izq == NULL;
+            tareaRealizada("eliminar");
+            delete borrarInicio;
+
+        }else if(valor > sizeDeLaLista()){
+            cout<<"El numero ingresado es mayor a la cantidad de elementos en la lista"<<endl;
+
+        }else if(valor == sizeDeLaLista()){
+            Nodo* borrarFin = fin;
+            fin = fin->izq;
+            fin->der = NULL;
+            tareaRealizada("eliminar");
+            delete borrarFin;
+        
+        }else{
+            Nodo* actual = inicio;
+            Nodo* anterior;
+            Nodo* siguiente;
+            Nodo* borrar;
+            int contador=1;
+
+            while(actual != NULL){
+                if(contador == valor){
+                    anterior=actual->izq;
+                    siguiente=actual->der;
+                    borrar = actual;
+                    anterior->der = siguiente;
+                    siguiente->izq = anterior;
+                    tareaRealizada("eliminar");
+                    delete borrar;
+                    break;
+                }
+                contador+=1;
+                actual=actual->der;
+            }
+        }
+    }
 
     void ModificarNodo(int valor){
         int opcion;
@@ -142,10 +152,66 @@ class ListaDoblementeEnlazada{
 
         if(inicio == NULL){
             cout<<"La lista se encuentra vacia";
+
+        }else if(valor == sizeDeLaLista()){
+            Nodo* actual = fin;
+            opcion = valoresparaModificar();
+            switch (opcion){
+                case 1:
+                    cout<<"Ingrese el nuevo valor del carnet: ";
+                    cin>>carnetNuevo;
+                    actual->carnet = carnetNuevo;
+                    tareaRealizada("a");
+                    
+                break;
+                case 2:
+                    cout<<"Ingrese el nuevo valor del nombre: ";
+                    cin>>nombreNuevo;
+                    actual->nombre = nombreNuevo;
+                    tareaRealizada("a");
+
+                break;
+                case 3:
+                    cout<<"Ingrese el nuevo valor del descripcion: ";
+                    cin>>descripcionNuevo;
+                    actual->descripcion = descripcionNuevo;
+                    tareaRealizada("a");
+
+                break;
+                case 4:
+                    cout<<"Ingrese el nuevo valor del materia: ";
+                    cin>>materiaNuevo;
+                    actual->materia = materiaNuevo;
+                    tareaRealizada("a");
+
+                break;
+                case 5:
+                    cout<<"Ingrese el nuevo valor del fecha: ";
+                    cin>>fechaNuevo;
+                    actual->fecha = fechaNuevo;
+                    tareaRealizada("a");
+
+                break;
+                case 6:
+                    cout<<"Ingrese el nuevo valor del hora: ";
+                    cin>>horaNuevo;
+                    actual->hora = horaNuevo;
+                    tareaRealizada("a");
+
+                break;
+                case 7:
+                    cout<<"Ingrese el nuevo valor del estado: ";
+                    cin>>estadoNuevo;
+                    actual->estado = estadoNuevo;
+                    tareaRealizada("a");
+
+                break;
+            }
+
         }else{
             Nodo* actual = inicio;
             int contador = 1;
-            while(actual->der != NULL){
+            while(actual != NULL){
                 if(valor == contador){
                     opcion = valoresparaModificar();
                     switch (opcion){
@@ -153,42 +219,56 @@ class ListaDoblementeEnlazada{
                         cout<<"Ingrese el nuevo valor del carnet: ";
                         cin>>carnetNuevo;
                         actual->carnet = carnetNuevo;
+                        tareaRealizada("a");
+
                      break;
 
                     case 2:
                         cout<<"Ingrese el nuevo valor del nombre: ";
                         cin>>nombreNuevo;
                         actual->nombre = nombreNuevo;
+                        tareaRealizada("a");
+
                      break;
 
                     case 3:
                         cout<<"Ingrese el nuevo valor del descripcion: ";
                         cin>>descripcionNuevo;
                         actual->descripcion = descripcionNuevo;
+                        tareaRealizada("a");
+
                      break;
 
                     case 4:
                         cout<<"Ingrese el nuevo valor del materia: ";
                         cin>>materiaNuevo;
                         actual->materia = materiaNuevo;
+                        tareaRealizada("a");
+
                      break;
 
                     case 5:
                         cout<<"Ingrese el nuevo valor del fecha: ";
                         cin>>fechaNuevo;
                         actual->fecha = fechaNuevo;
+                        tareaRealizada("a");
+
                      break;
 
                     case 6:
                         cout<<"Ingrese el nuevo valor del hora: ";
                         cin>>horaNuevo;
                         actual->hora = horaNuevo;
+                        tareaRealizada("a");
+
                      break;
 
                     case 7:
                         cout<<"Ingrese el nuevo valor del estado: ";
                         cin>>estadoNuevo;
                         actual->estado = estadoNuevo;
+                        tareaRealizada("a");
+                        
                      break;
 
                     }
