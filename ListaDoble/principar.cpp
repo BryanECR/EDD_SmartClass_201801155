@@ -12,20 +12,19 @@ int main(){
     ListaDoblementeEnlazada obj;
     
 
-    obj.agregar(201801155,"Bryan Eduardo Caal Racanac","P1","EDD","6/08/2021","22:39","Pendiente");
-    obj.agregar(201801155,"Bryan Eduardo Caal Racanac","P1","OC1","21/09/2021","00:00","Incumplido");
-    obj.agregar(201801155,"Bryan Eduardo Caal Racanac","Tarea","Apli 1","18/08/2021","10:40","Medio Realizado");
-    obj.agregar(201801155,"Bryan Eduardo Caal Racanac","mimir","Nada","6/08/2021","22:39","Realizado");
-    obj.agregar(201801155,"Bryan Eduardo Caal Racanac","hoja 2","IO1","8/10/2021","12:00","Realizado");
-    obj.mostrar();   
-    obj.borrarElemento(5);
-    cout<<endl;
-    obj.ModificarNodo(3);
-    obj.mostrar();
+    obj.agregar(7,8,9,201801155,"Bryan Eduardo Caal Racanac","1","EDD","6/08/2021","Pendiente");
+    obj.agregar(1,2,3,201801155,"Bryan Eduardo Caal Racanac","2","EDD","6/08/2021","Pendiente");
+    obj.agregar(4,5,6,201801155,"Bryan Eduardo Caal Racanac","3","EDD","6/08/2021","Pendiente");
+    obj.agregar(9,8,7,201801155,"Bryan Eduardo Caal Racanac","4","EDD","6/08/2021","Pendiente");
+    obj.agregar(3,2,1,201801155,"Bryan Eduardo Caal Racanac","5","EDD","6/08/2021","Pendiente");
+    obj.agregar(6,5,4,201801155,"Bryan Eduardo Caal Racanac","6","EDD","6/08/2021","Pendiente");
+    obj.agregar(1,5,9,201801155,"Bryan Eduardo Caal Racanac","7","EDD","6/08/2021","Pendiente");
+    obj.agregar(7,5,3,201801155,"Bryan Eduardo Caal Racanac","8","EDD","6/08/2021","Pendiente");
+    obj.agregar(1,5,3,201801155,"Bryan Eduardo Caal Racanac","9","EDD","6/08/2021","Pendiente");
+    obj.agregar(7,2,9,201801155,"Bryan Eduardo Caal Racanac","10","EDD","6/08/2021","Pendiente");
 
+    obj.reporte(3,2,1,4);
+    obj.reporte(1,5,3,3);
     
-
-
-
     return 0;
 }

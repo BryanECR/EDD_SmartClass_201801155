@@ -15,5 +15,6 @@ class Nodo{
         string password;
         int creditos;
         int edad;
+        string correo;
         Nodo* der;
 };

@@ -13,7 +13,7 @@ class ListaCirculasDoblementeEnlazada{
             fin = NULL;
         }
 
-    void agregar(int carnet,int dpi,string nombre,string carrera,string password,int creditos,int edad){
+    void agregar(int carnet,int dpi,string nombre,string carrera,string password,int creditos,int edad,string correo){
         Nodo* nuevo = new Nodo();
         nuevo->carnet = carnet;
         nuevo->dpi = dpi;
@@ -22,6 +22,7 @@ class ListaCirculasDoblementeEnlazada{
         nuevo->password = password;
         nuevo->creditos = creditos;
         nuevo->edad = edad;
+        nuevo->correo = correo;
 
         if(inicio == NULL){
             inicio = nuevo;
@@ -53,7 +54,7 @@ class ListaCirculasDoblementeEnlazada{
                 cout<<actual->password<<"\t";
                 cout<<actual->creditos<<"\t";
                 cout<<actual->edad<<endl;
-
+                cout<<actual->correo<<endl;
                 actual=actual->der;
             }while(actual != inicio);
         }
@@ -77,6 +78,7 @@ class ListaCirculasDoblementeEnlazada{
         cout<<"                     5- Password\n";
         cout<<"                     6- Creditos\n";
         cout<<"                     7- Edad\n";
+        cout<<"                     8- Correo\n";
         cout<<"Ingrese la Opcion que desea modificar: ";
         cin>>opcion;
         return opcion;
@@ -91,6 +93,7 @@ class ListaCirculasDoblementeEnlazada{
         string passwordNuevo;
         int creditosNuevo;
         int edadNuevo;
+        string correoNuevo;
 
         if(inicio == NULL){
             cout<<"La lista se encuantra vacia"<<endl;
@@ -124,7 +127,7 @@ class ListaCirculasDoblementeEnlazada{
 
                      break;
                     case 4:
-                        cout<<"Ingrese el nuevo carrera: ";
+                        cout<<"Ingrese la nueva carrera: ";
                         cin>>carreraNuevo;
                         actual->carrera = carreraNuevo;
                         tareaRealizada("a");
@@ -138,18 +141,24 @@ class ListaCirculasDoblementeEnlazada{
 
                      break;
                     case 6:
-                        cout<<"Ingrese el nuevo creditos: ";
+                        cout<<"Ingrese el nuevo numero de creditos: ";
                         cin>>creditosNuevo;
                         actual->creditos = creditosNuevo;
                         tareaRealizada("a");
 
                      break;
                     case 7:
-                        cout<<"Ingrese el nuevo edad: ";
+                        cout<<"Ingrese la nueva edad: ";
                         cin>>edadNuevo;
                         actual->edad = edadNuevo;
                         tareaRealizada("a");
 
+                     break;
+                    case 8:
+                        cout<<"Ingrese el nuevo Correo: ";
+                        cin>>correoNuevo;
+                        actual->correo = correoNuevo;
+                        tareaRealizada("a");
                      break;
                     }
                     break;
@@ -198,7 +207,5 @@ class ListaCirculasDoblementeEnlazada{
             }while(actual != inicio);
         }
     }
-
-
 
 };

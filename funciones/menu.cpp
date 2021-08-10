@@ -7,34 +7,43 @@ using namespace std;
 
 class Menu{
 
+    void reportes(){
+        cout<<" ************ REPORTES ************ \n";
+        cout<<"       1- Lista de Estudiantes \n";
+        cout<<"       2- Linealizacion de Tareas \n";
+        cout<<"       3- salir\n";
+        cout<<"Ingrese la Opcion que desea realizar: ";
+
+    }
+
     void ingresoDeTareas(){
         bool seguir = true;
         
         while(seguir){
             int Opcion;
-            cout<<endl<<" ******* INGRESO MANUAL DE TAREAS ******* "<<endl;
-            cout<<endl<<"         1- Ingresar una tarea"<< endl;
-            cout<<"         2- Modificar una tarea"<< endl;
-            cout<<"         3- Eliminar una tarea"<< endl;
-            cout<<"         4- Salir"<< endl;
+            cout<<endl<<" ******* INGRESO MANUAL DE TAREAS ******* \n";
+            cout<<endl<<"         1- Ingresar una tarea\n";
+            cout<<"         2- Modificar una tarea\n";
+            cout<<"         3- Eliminar una tarea\n";
+            cout<<"         4- Salir\n";
             cin>>Opcion;
             switch(Opcion){
                 case 1:
-                    cout<<" ******* Ingresar Usuario ******* "<<endl;
+                    cout<<" ******* Ingresar Usuario ******* \n";
 
                  break;
                 case 2:
-                    cout<<"Modificar Usuario"<<endl;
+                    cout<<"Modificar Usuario\n";
                  break;
                 case 3:
-                    cout<<"Eliminar Usuario"<<endl;
+                    cout<<"Eliminar Usuario\n";
                  break;
                 case 4:
-                    cout<<"¡Hasta la proxima!"<<endl;
+                    cout<<"¡Hasta la proxima!\n";
                     seguir = false;
                  break;
                 default:
-                cout<<"La opcion que eligio no esta en el menu"<<endl;
+                cout<<"La opcion que eligio no esta en el menu\n";
 
             }
         }

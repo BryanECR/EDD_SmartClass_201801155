@@ -8,12 +8,14 @@ using namespace std;
 class Nodo{
     public:
         Nodo* izq;
+        int mes;
+        int dia;
+        int hora;
         int carnet;
         string nombre;
         string descripcion;
         string materia;
         string fecha;
-        string hora;
         string estado;
         Nodo* der;
 };
