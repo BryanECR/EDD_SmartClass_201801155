@@ -23,8 +23,7 @@ int main(){
     obj.agregar(1,5,3,201801155,"Bryan Eduardo Caal Racanac","9","EDD","6/08/2021","Pendiente");
     obj.agregar(7,2,9,201801155,"Bryan Eduardo Caal Racanac","10","EDD","6/08/2021","Pendiente");
 
-    obj.reporte(3,2,1,4);
-    obj.reporte(1,5,3,3);
+    obj.graficar(1);
     
     return 0;
 }

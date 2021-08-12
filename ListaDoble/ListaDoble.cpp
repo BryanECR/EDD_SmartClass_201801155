@@ -1,5 +1,6 @@
 #include "Nodo.cpp"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -327,5 +328,36 @@ class ListaDoblementeEnlazada{
         }
     }
 
+    void graficar(int numero){
+        string nombredelagrafica = "Grafica"+to_string(numero);
+        Nodo* actual = inicio;
+        int contador = 0;
+        string texto = "";
 
+        while(actual!= NULL){
+            texto += "nodo"+to_string(contador)+"[shape=square label=\"Mes: "+to_string(actual->mes)+"\nDia: "+to_string(actual->dia)+"\nHora: "+to_string(actual->hora)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado+"\"]\n";
+        
+            contador+=1;
+            actual = actual->der;
+        }
+
+        for(int i=0; i<(contador-1); i++){
+            texto += "\nnodo"+to_string(i)+"->nodo"+to_string(i+1)+" [dir=both];";
+        }
+
+        ofstream archivo;
+        archivo.open(nombredelagrafica+".dot",ios::out);
+
+        if(archivo.fail()){
+            cout<<"No se pude abrir el archivo";
+            exit(1);
+        }
+
+        archivo<<"digraph G{\n"+texto+"\n}";
+        archivo.close();
+        std::string str = "dot -Tpng Grafica"+to_string(numero)+".dot -o Grafica"+to_string(numero)+".png";
+        const char *cstm = str.c_str();
+        system(cstm);
+
+    }
 };
