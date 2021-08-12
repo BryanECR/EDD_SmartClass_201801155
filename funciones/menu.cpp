@@ -8,12 +8,30 @@ using namespace std;
 class Menu{
 
     void reportes(){
-        cout<<" ************ REPORTES ************ \n";
-        cout<<"       1- Lista de Estudiantes \n";
-        cout<<"       2- Linealizacion de Tareas \n";
-        cout<<"       3- salir\n";
-        cout<<"Ingrese la Opcion que desea realizar: ";
-
+        int opcion;
+        bool seguir = true;
+        while(seguir){
+            cout<<" ************ REPORTES ************ \n";
+            cout<<"       1- Lista de Estudiantes \n";
+            cout<<"       2- Linealizacion de Tareas \n";
+            cout<<"       3- salir\n";
+            cout<<"Ingrese la Opcion que desea realizar: ";
+            cin>>opcion;
+            switch(opcion){
+                case 1:
+                    cout<<"Lista de Estudiantes"<<endl;
+                 break;
+                case 2:
+                    cout<<"Linealizacion de Tareas"<<endl;
+                 break;
+                case 3:
+                    cout<<"Salir"<<endl;
+                    seguir = false;
+                 break;
+                default:
+                   cout<<"Opcion no valida"<<endl;
+            }
+        }
     }
 
     void ingresoDeTareas(){
@@ -29,14 +47,13 @@ class Menu{
             cin>>Opcion;
             switch(Opcion){
                 case 1:
-                    cout<<" ******* Ingresar Usuario ******* \n";
-
+                    cout<<" ******* Ingresar tarea ******* \n";
                  break;
                 case 2:
-                    cout<<"Modificar Usuario\n";
+                    cout<<"Modificar tarea\n";
                  break;
                 case 3:
-                    cout<<"Eliminar Usuario\n";
+                    cout<<"Eliminar tarea\n";
                  break;
                 case 4:
                     cout<<"¡Hasta la proxima!\n";
@@ -125,9 +142,11 @@ class Menu{
             switch(Opcion){
                 case 1:
                     cout<<"Usuarios"<<endl;
+                    ingresoDeUsuarios();
                 break;
                 case 2:
                     cout<<"Tareas"<<endl;
+                    ingresoDeTareas();
                 break;
                 case 3:
                     cout<<"¡Hasta la proxima!"<<endl;
@@ -164,11 +183,12 @@ class Menu{
                     cout<<"caso 2"<<endl;
                  break;
                 case 3:
-                    cout<<"caso 3"<<endl;
                     ingresoManual();
+
                  break;
                 case 4:
-                    cout<<"***** Reportes ******"<<endl;
+                    reportes();
+
                  break;
                 case 5:
                     cout<<"¡Hasta la proxima!"<<endl;
@@ -199,3 +219,10 @@ class Menu{
     }
 
 };
+
+int main(){
+    Menu m;
+    m.menu();
+
+    return 0;
+}
