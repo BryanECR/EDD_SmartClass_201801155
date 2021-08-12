@@ -5,14 +5,21 @@ using namespace std;
 int main(){
     ListaCirculasDoblementeEnlazada obj;
 
-    int q = obj.validarCarnetDpi(201801155);
+    std::string email = "usuario@gmail.com";
+    std::string email2 = "usua_rio@gmail.gt";
+    std::string email3 = "usua*rio@gmail.nice";
+    std::string email4 = "usuario@hotmail.es";
+
+    int q = obj.validarCorreo(email);
     cout<<q;
-    q = obj.validarCarnetDpi(36296350115);
+    q = obj.validarCorreo(email2);
     cout<<q;
-    q = obj.validarCarnetDpi(201801);
+    q = obj.validarCorreo(email3);
     cout<<q;
-    q = obj.validarCarnetDpi(3629635920115);
+    q = obj.validarCorreo(email4);
     cout<<q;
+
+
 
     return 0;
 }

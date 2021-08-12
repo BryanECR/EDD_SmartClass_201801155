@@ -44,7 +44,23 @@ class Tarea{
     }
 };
 
+class FuncionesDeMatrix{
+    public:
+    FuncionesDeMatrix(){}
+
+    int validarFechas(int m, int d,int h){
+        if(m >= 7 && m <= 11 && d >= 1 && d <= 30 && h >= 8 && h <= 16){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+};
+
+
 int main(){
+    /*
     Tarea matriz3d[2][2][2] = { Tarea() };
     int contador=0;
     int mes,dia,h,c;
@@ -87,5 +103,13 @@ int main(){
         }
     }
 
+    */
+
+    FuncionesDeMatrix obj;
+   
+    int res = obj.validarFechas(7,25,13);
+    cout<<res<<endl;
+    res = obj.validarFechas(2,25,10);
+    cout<<res<<endl;
     return 0;
 }

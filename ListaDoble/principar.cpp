@@ -11,7 +11,7 @@ int main(){
     SetConsoleOutputCP(CP_UTF8);
     ListaDoblementeEnlazada obj;
     
-
+    /*
     obj.agregar(7,8,9,201801155,"Bryan Eduardo Caal Racanac","1","EDD","6/08/2021","Pendiente");
     obj.agregar(1,2,3,201801155,"Bryan Eduardo Caal Racanac","2","EDD","6/08/2021","Pendiente");
     obj.agregar(4,5,6,201801155,"Bryan Eduardo Caal Racanac","3","EDD","6/08/2021","Pendiente");
@@ -24,6 +24,14 @@ int main(){
     obj.agregar(7,2,9,201801155,"Bryan Eduardo Caal Racanac","10","EDD","6/08/2021","Pendiente");
 
     obj.graficar(1);
+    */
+
+    int res = obj.validarFechas(10,"mes");
+    cout<<res<<endl;
+    res = obj.validarFechas(31,"dia");
+    cout<<res<<endl;
+    res = obj.validarFechas(13,"hora");
+    cout<<res<<endl;
     
     return 0;
 }

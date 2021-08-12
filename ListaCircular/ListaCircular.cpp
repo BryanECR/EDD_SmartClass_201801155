@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Nodo.cpp"
 #include <fstream>
+#include <regex>
 
 using namespace std;
 
@@ -256,5 +257,14 @@ class ListaCirculasDoblementeEnlazada{
         }
     }
 
+    int validarCorreo(const std::string& email){
+        const std::regex pattern
+            ("[\\w]+@[\\w]+\\.[cmesorg]{2,3}");
 
+        if(std::regex_match(email, pattern)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 };

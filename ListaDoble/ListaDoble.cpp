@@ -360,4 +360,38 @@ class ListaDoblementeEnlazada{
         system(cstm);
 
     }
+
+    int validarFechas(int numero, string dato){
+        int caso;
+        if(dato == "mes"){
+            caso = 1;
+        }else if(dato == "dia"){
+            caso = 2;
+        }else{
+            caso = 3;
+        }
+        switch(caso){
+            case 1:
+                if(numero >= 7 && numero <= 11){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            break;
+            case 2:
+                if(numero >= 1 && numero <= 30){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            break;
+            case 3:
+                if(numero >= 8 && numero <= 16){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            break;
+        }
+    }
 };
