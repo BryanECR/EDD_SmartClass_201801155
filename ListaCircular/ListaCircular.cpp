@@ -245,4 +245,16 @@ class ListaCirculasDoblementeEnlazada{
         const char *cstm = str.c_str();
         system(cstm);
     }
+
+    int validarCarnetDpi(long long int numero){
+        string cadena = to_string(numero);
+        int tamaño = cadena.size();
+        if(tamaño == 13 || tamaño == 9){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+
 };
