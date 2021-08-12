@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Nodo.cpp"
+#include <fstream>
 
 using namespace std;
 
@@ -208,4 +209,40 @@ class ListaCirculasDoblementeEnlazada{
         }
     }
 
+    void graficar(int numero){
+        string nombredelagrafica = "Grafica"+to_string(numero);
+        Nodo* actual = new Nodo();
+        actual = inicio;
+        int contador = 0;
+        string texto = "";
+
+        if(inicio==NULL){
+            cout<<"la lista esta vacia"<<endl;
+        }else{
+            do{
+                texto+="\tnodo"+to_string(contador)+" [shape=square label=\"Carnet:"+to_string(actual->carnet)+"\nDPI: "+to_string(actual->dpi)+"\nNombre: "+actual->nombre+"\nCarrera: "+actual->carrera+"\nPassword: "+actual->password+"\nCreditos: "+to_string(actual->creditos)+"\nEdad:"+to_string(actual->edad)+"\nCorreo: "+actual->correo+"\"]\n";
+                actual=actual->der;
+                contador+=1;
+            }while(actual != inicio);
+        }
+
+        texto+="nodo0->nodo"+to_string(contador-1)+" [dir=both];";
+        for(int i=0; i<(contador-1); i++){
+            texto+="\nnodo"+to_string(i)+"->nodo"+to_string(i+1)+"[dir=both];";
+        }
+
+        ofstream archivo;
+        archivo.open(nombredelagrafica+".dot",ios::out);
+
+        if(archivo.fail()){
+            cout<<"No se pude abrir el archivo";
+            exit(1);
+        }
+
+        archivo<<"digraph G{\n"+texto+"\n}";
+        archivo.close();
+        std::string str = "dot -Tpng Grafica"+to_string(numero)+".dot -o Grafica"+to_string(numero)+".png";
+        const char *cstm = str.c_str();
+        system(cstm);
+    }
 };

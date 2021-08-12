@@ -11,11 +11,8 @@ int main(){
     obj.agregar(201801155,100000001,"Bryan Eduardo Caal Racanac","Ingenieria en sistemas","Bryanecr1234",72,22,"@kajsdkljasd");
     obj.mostrar();
     cout<<endl;
-    obj.eliminarEstudiante(321654987);
-    obj.eliminarEstudiante(100000001);
-    obj.eliminarEstudiante(369852147);
 
-    obj.mostrar();
+    obj.graficar(1);
 
 
     return 0;
