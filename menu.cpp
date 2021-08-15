@@ -1,9 +1,14 @@
 #include <iostream>
+#include <string>
 #include <stdio.h>
 #include <wchar.h>
 #include <locale.h>
 #include <stdlib.h>
+#include "ListaCircular/ListaCircular.cpp"
 using namespace std;
+
+ListaCirculasDoblementeEnlazada listacircular;
+int contadorgraficaestudiantes = 0;
 
 class Menu{
 
@@ -19,7 +24,8 @@ class Menu{
             cin>>opcion;
             switch(opcion){
                 case 1:
-                    cout<<"Lista de Estudiantes"<<endl;
+                    listacircular.graficar(contadorgraficaestudiantes);
+                    contadorgraficaestudiantes+=1;
                  break;
                 case 2:
                     cout<<"Linealizacion de Tareas"<<endl;
@@ -44,6 +50,7 @@ class Menu{
             cout<<"         2- Modificar una tarea\n";
             cout<<"         3- Eliminar una tarea\n";
             cout<<"         4- Salir\n";
+            cout<<"Ingrese la opcion que desea por teclado: ";
             cin>>Opcion;
             switch(Opcion){
                 case 1:
@@ -68,54 +75,74 @@ class Menu{
 
     void ingresoDeUsuarios(){
         bool seguir = true;
-        while(seguir){
-            string carnet;
-            string dpi;
-            string nombre;
-            string carrera;
-            string password;
-            string creditos;
-            string edad;
+        int carnet, creditos, edad, Opcion;
+        long long int dpi;
+        string nombre, carrera, password,correo;
 
-            int Opcion;
+        while(seguir){
             cout<<endl<<" ******* INGRESO MANUAL DE USUARIOS ******* "<<endl;
             cout<<endl<<"         1- Ingresar un usuario"<< endl;
             cout<<"         2- Modificar un usuario"<< endl;
             cout<<"         3- Eliminar un usuario"<< endl;
             cout<<"         4- Salir"<< endl;
+            cout<<"Ingrese la opcion que desea mediante teclado: ";
             cin>>Opcion;
             switch(Opcion){
                 case 1:
                     cout<<" ****** Ingresar Usuario ****** "<<endl;
-                    cout<<"carnet: "<< endl;
+                    cin.ignore();
+                    cout<<"Nombre: ";
+                    getline(cin,nombre);
+                    cout<<"Carnet: ";
                     cin>>carnet;
-                    cout<<"dpi: "<< endl;
-                    cin>>dpi;
-                    cout<<"nombre: "<< endl;
-                    cin>>nombre;
-                    cout<<"carrera: "<< endl;
-                    cin>>carrera;
-                    cout<<"carnet: "<< endl;
-                    cin>>carnet;
-                    cout<<"password: "<< endl;
+                    cout<<"DPI: ";
+                    cin>>dpi;                    
+                    cout<<"Password: ";
                     cin>>password;
-                    cout<<"creditos: "<< endl;
+                    cout<<"Creditos: ";
                     cin>>creditos;
-                    cout<<"edad: "<< endl;
+                    cout<<"Edad: ";
                     cin>>edad;
+                    cout<<"Correo: ";
+                    cin>>correo;
+                    cin.ignore();
+                    cout<<"Carrera: ";
+                    getline(cin,carrera);
+                    if(listacircular.validarCarnetDpi(dpi) == 1 && listacircular.validarCarnetDpi(carnet) == 1 && listacircular.validarCorreo(correo) == 1){
+                        listacircular.agregar(carnet,dpi,nombre,carrera,password,creditos,edad,correo);
+                    }else{
+                        cout<<"\n **** El usuario no fue agregado debido a errores en la informacion **** \n";
+                    }
+                    
+                    system("pause");
+                    system("cls");
 
                  break;
                 case 2:
                     cout<<" ****** Modificar Usuario ****** "<<endl;
                     cout<<" Ingrese el DPI del usuario: ";
                     cin>>dpi;
+                    if(listacircular.buscarEstudiantes(dpi)){
+                        listacircular.modificarEstudiante(dpi);
+                    }else{
+                        cout<<"* El usuario no existe o la lista esta vacia *"<<endl;
+                    }
+                    system("pause");
+                    system("cls");
 
                  break;
                 case 3:
                     cout<<" ****** Eliminar Usuario ****** "<<endl;
                     cout<<" Ingrese el DPI del usuario: ";
                     cin>>dpi;
-
+                    if(listacircular.buscarEstudiantes(dpi)){
+                        listacircular.eliminarEstudiante(dpi);
+                    }else{
+                        cout<<"* El usuario no existe o la lista esta vacia *"<<endl;
+                    }
+                    system("pause");
+                    system("cls");
+                    
                  break;
                 case 4:
                     cout<<"¡Hasta la proxima!"<<endl;
@@ -142,7 +169,9 @@ class Menu{
             switch(Opcion){
                 case 1:
                     cout<<"Usuarios"<<endl;
+                    system("cls");
                     ingresoDeUsuarios();
+                    
                 break;
                 case 2:
                     cout<<"Tareas"<<endl;
@@ -183,10 +212,12 @@ class Menu{
                     cout<<"caso 2"<<endl;
                  break;
                 case 3:
+                    system("cls");
                     ingresoManual();
-
+                    
                  break;
                 case 4:
+                    system("cls");
                     reportes();
 
                  break;
@@ -196,7 +227,21 @@ class Menu{
                  break;
                 default:
                     cout<<"El valor ingresado no esta en el menu"<<endl;
-                    /*
+                    
+            }
+        }
+    }
+
+};
+
+int main(){
+    Menu m;
+    m.menu();
+
+    return 0;
+}
+
+/*
                      ´´´´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶´´´´´´´´´´´´´´´
                      ´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´´´¶¶¶¶´´´´
                      ´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶´´´´´´´’’¶¶¶¶¶¶¶¶¶´´´
@@ -213,16 +258,4 @@ class Menu{
                      ´´´´´¶¶¶¶´´´´´´´¶¶¶¶´´´´´´´´´´´´´´´´¶¶¶¶´´´´´´´´
                      ´´´´´¶¶¶¶´´´´´´´´´¶¶¶¶¶¶´´´´´´´´´´¶¶¶¶¶´´´´´´´´´
                      ´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´´´
-                    */
-            }
-        }
-    }
-
-};
-
-int main(){
-    Menu m;
-    m.menu();
-
-    return 0;
-}
+*/

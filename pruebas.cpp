@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <strings.h>
 #include <regex>
 
 using namespace std;
@@ -30,11 +31,15 @@ int main(){
     std::string email2 = "textexample@random.coma";
     std::string email3 = "user@extension.org";
 
+    int carnet;
+    long long int dpi;
 
 
-    is_email_valid(email1);
-    is_email_valid(email2);
-    is_email_valid(email3);
+
+    
+    cout<<"DPI: ";
+    cin>>dpi;
+    cout<<to_string(dpi);
 
 
   return 0;

@@ -93,11 +93,11 @@ class ListaDoblementeEnlazada{
         }
     }
 
-    void tareaRealizada(string tarea){
+    string tareaRealizada(string tarea){
         if(tarea == "eliminar"){
-            cout<<"Eliminado con Exito"<<endl;
+            return "Eliminado con Exito";
         }else{
-            cout<<"Modificado con exito"<<endl;
+            return "Modificado con exito";
         }
 
     }
@@ -110,7 +110,7 @@ class ListaDoblementeEnlazada{
             Nodo* borrarInicio = inicio;
             inicio = inicio->der;
             inicio->izq == NULL;
-            tareaRealizada("eliminar");
+            cout<< tareaRealizada("eliminar");
             delete borrarInicio;
 
         }else if(valor > sizeDeLaLista()){
@@ -120,7 +120,7 @@ class ListaDoblementeEnlazada{
             Nodo* borrarFin = fin;
             fin = fin->izq;
             fin->der = NULL;
-            tareaRealizada("eliminar");
+            cout<< tareaRealizada("eliminar");
             delete borrarFin;
         
         }else{
@@ -137,7 +137,7 @@ class ListaDoblementeEnlazada{
                     borrar = actual;
                     anterior->der = siguiente;
                     siguiente->izq = anterior;
-                    tareaRealizada("eliminar");
+                    cout<<tareaRealizada("eliminar");
                     delete borrar;
                     break;
                 }
@@ -170,63 +170,63 @@ class ListaDoblementeEnlazada{
                     cout<<"Ingrese el nuevo valor del mes: ";
                     cin>>mesNuevo;
                     actual->mes = mesNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
                     
                 break;
                 case 2:
                     cout<<"Ingrese el nuevo valor del dia: ";
                     cin>>diaNuevo;
                     actual->dia = diaNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
                     
                 break;
                 case 3:
                     cout<<"Ingrese el nuevo valor del hora: ";
                     cin>>horaNuevo;
                     actual->hora = horaNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
 
                 break;
                 case 4:
                     cout<<"Ingrese el nuevo valor del carnet: ";
                     cin>>carnetNuevo;
                     actual->carnet = carnetNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
                     
                 break;
                 case 5:
                     cout<<"Ingrese el nuevo valor del nombre: ";
                     cin>>nombreNuevo;
                     actual->nombre = nombreNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
 
                 break;
                 case 6:
                     cout<<"Ingrese el nuevo valor del descripcion: ";
                     cin>>descripcionNuevo;
                     actual->descripcion = descripcionNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
 
                 break;
                 case 7:
                     cout<<"Ingrese el nuevo valor del materia: ";
                     cin>>materiaNuevo;
                     actual->materia = materiaNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
 
                 break;
                 case 8:
                     cout<<"Ingrese el nuevo valor del fecha: ";
                     cin>>fechaNuevo;
                     actual->fecha = fechaNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
 
                 break;
                 case 9:
                     cout<<"Ingrese el nuevo valor del estado: ";
                     cin>>estadoNuevo;
                     actual->estado = estadoNuevo;
-                    tareaRealizada("a");
+                    cout<< tareaRealizada("a");
 
                 break;
             }
@@ -242,55 +242,55 @@ class ListaDoblementeEnlazada{
                             cout<<"Ingrese el nuevo valor del mes: ";
                             cin>>mesNuevo;
                             actual->mes = mesNuevo;
-                            tareaRealizada("a");                            
+                            cout<< tareaRealizada("a");                            
                         break;
                         case 2:
                             cout<<"Ingrese el nuevo valor del dia: ";
                             cin>>diaNuevo;
                             actual->dia = diaNuevo;
-                            tareaRealizada("a");                            
+                            cout<< tareaRealizada("a");                            
                         break;
                         case 3:
                             cout<<"Ingrese el nuevo valor del hora: ";
                             cin>>horaNuevo;
                             actual->hora = horaNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
                         case 4:
                             cout<<"Ingrese el nuevo valor del carnet: ";
                             cin>>carnetNuevo;
                             actual->carnet = carnetNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
                         case 5:
                             cout<<"Ingrese el nuevo valor del nombre: ";
                             cin>>nombreNuevo;
                             actual->nombre = nombreNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
                         case 6:
                             cout<<"Ingrese el nuevo valor del descripcion: ";
                             cin>>descripcionNuevo;
                             actual->descripcion = descripcionNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
                         case 7:
                             cout<<"Ingrese el nuevo valor del materia: ";
                             cin>>materiaNuevo;
                             actual->materia = materiaNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
                         case 8:
                             cout<<"Ingrese el nuevo valor del fecha: ";
                             cin>>fechaNuevo;
                             actual->fecha = fechaNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
                         case 9:
                             cout<<"Ingrese el nuevo valor del estado: ";
                             cin>>estadoNuevo;
                             actual->estado = estadoNuevo;
-                            tareaRealizada("a");
+                            cout<< tareaRealizada("a");
                         break;
 
                     }

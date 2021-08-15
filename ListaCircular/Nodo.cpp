@@ -1,7 +1,4 @@
 #include <strings.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <iostream>
 
 using namespace std;
 
@@ -9,7 +6,7 @@ class Nodo{
     public:
         Nodo* izq;
         int carnet;
-        int dpi;
+        long long int dpi;
         string nombre;
         string carrera;
         string password;

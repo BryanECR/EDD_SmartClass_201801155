@@ -15,7 +15,7 @@ class ListaCirculasDoblementeEnlazada{
             fin = NULL;
         }
 
-    void agregar(int carnet,int dpi,string nombre,string carrera,string password,int creditos,int edad,string correo){
+    void agregar(int carnet,long long int dpi,string nombre,string carrera,string password,int creditos,int edad,string correo){
         Nodo* nuevo = new Nodo();
         nuevo->carnet = carnet;
         nuevo->dpi = dpi;
@@ -31,7 +31,7 @@ class ListaCirculasDoblementeEnlazada{
             inicio->der=inicio;
             inicio->izq=inicio;
             fin=inicio;
-
+            
         }else{
             fin->der=nuevo;
             nuevo->der=inicio;
@@ -40,6 +40,7 @@ class ListaCirculasDoblementeEnlazada{
             inicio->izq=fin;
 
         }
+        cout<<"Se agrego correctamente"<<endl;
     }
 
     void mostrar(){
@@ -62,12 +63,12 @@ class ListaCirculasDoblementeEnlazada{
         }
     }
 
-    void tareaRealizada(string tarea){
+    string tareaRealizada(string tarea){
         if(tarea == "eliminar"){
-            cout<<"Estudiante eliminado con exito"<<endl;
-        }else{
-            cout<<"Datos modificados con exito"<<endl;
+            return "Estudiante eliminado con exito";
         }
+        return "Datos modificados con exito";
+        
     }
 
     int datosParaModificar(){
@@ -86,10 +87,10 @@ class ListaCirculasDoblementeEnlazada{
         return opcion;
     }
 
-    void modificarEstudiante(int dpi){
+    void modificarEstudiante(long long int dpi){
         int opcion;
         int carnetNuevo;
-        int dpiNuevo;
+        long long int dpiNuevo;
         string nombreNuevo;
         string carreraNuevo;
         string passwordNuevo;
@@ -110,57 +111,75 @@ class ListaCirculasDoblementeEnlazada{
                     case 1:
                         cout<<"Ingrese el nuevo carnet: ";
                         cin>>carnetNuevo;
-                        actual->carnet = carnetNuevo;
-                        tareaRealizada("a");
+                        if(validarCarnetDpi(carnetNuevo)==1){
+                            actual->carnet = carnetNuevo;
+                            cout<<tareaRealizada("a");
+                        }else{
+                            cout<<"\n               ¡DATOS NO MODIFICADOS!\n";
+                            cout<<"** el numero de carnet no cumple con la longitud establecida ** \n";
+                        }
+                        
 
                      break;
                     case 2:
-                        cout<<"Ingrese el nuevo dpi: ";
+                        cout<<"Ingrese el nuevo DPI: ";
                         cin>>dpiNuevo;
-                        actual->dpi = dpiNuevo;
-                        tareaRealizada("a");
+                        if(validarCarnetDpi(carnetNuevo)==1){
+                            actual->dpi = dpiNuevo;
+                            cout<<tareaRealizada("a");
+                        }else{
+                            cout<<"\n               ¡DATOS NO MODIFICADOS!\n";
+                            cout<<"** el numero de DPI no cumple con la longitud establecida ** \n";
+                        }
+                        
 
                      break;
                     case 3:
                         cout<<"Ingrese el nuevo nombre: ";
                         cin>>nombreNuevo;
                         actual->nombre = nombreNuevo;
-                        tareaRealizada("a");
+                        cout<<tareaRealizada("a");
 
                      break;
                     case 4:
                         cout<<"Ingrese la nueva carrera: ";
                         cin>>carreraNuevo;
                         actual->carrera = carreraNuevo;
-                        tareaRealizada("a");
+                        cout<<tareaRealizada("a");
 
                      break;
                     case 5:
                         cout<<"Ingrese el nuevo password: ";
                         cin>>passwordNuevo;
                         actual->password = passwordNuevo;
-                        tareaRealizada("a");
+                        cout<<tareaRealizada("a");
 
                      break;
                     case 6:
                         cout<<"Ingrese el nuevo numero de creditos: ";
                         cin>>creditosNuevo;
                         actual->creditos = creditosNuevo;
-                        tareaRealizada("a");
+                        cout<<tareaRealizada("a");
 
                      break;
                     case 7:
                         cout<<"Ingrese la nueva edad: ";
                         cin>>edadNuevo;
                         actual->edad = edadNuevo;
-                        tareaRealizada("a");
+                        cout<<tareaRealizada("a");
 
                      break;
                     case 8:
                         cout<<"Ingrese el nuevo Correo: ";
                         cin>>correoNuevo;
-                        actual->correo = correoNuevo;
-                        tareaRealizada("a");
+                        if(validarCorreo(correoNuevo)==1){
+                            actual->correo = correoNuevo;
+                            cout<<tareaRealizada("a");
+                        }else{
+                            cout<<"\n               ¡DATOS NO MODIFICADOS!\n";
+                            cout<<" ** El correo nuevo no cumple con la estructura establecida ** \n";
+                        }
+                        
                      break;
                     }
                     break;
@@ -170,7 +189,7 @@ class ListaCirculasDoblementeEnlazada{
         }
     }
 
-    void eliminarEstudiante(int dpi){
+    void eliminarEstudiante(long long int dpi){
         if(inicio == NULL){
             cout<<"La lista esta vacia"<<endl;
 
@@ -178,14 +197,14 @@ class ListaCirculasDoblementeEnlazada{
             Nodo* borrarInicio = inicio;
             inicio = inicio->der;
             inicio->izq == fin;
-            tareaRealizada("eliminar");
+            cout<<tareaRealizada("eliminar");
             delete borrarInicio;
 
         }else if(fin->dpi == dpi){
             Nodo* borrarFin = fin;
             fin = fin->izq;
             fin->der = inicio;
-            tareaRealizada("eliminar");
+            cout<<tareaRealizada("eliminar");
             delete borrarFin;
 
         }else{
@@ -201,7 +220,7 @@ class ListaCirculasDoblementeEnlazada{
                     borrar = actual;
                     anterior->der = siguiente;
                     siguiente->izq = anterior;
-                    tareaRealizada("eliminar");
+                    cout<<tareaRealizada("eliminar");
                     delete borrar;
                     break;
                 }
@@ -252,9 +271,9 @@ class ListaCirculasDoblementeEnlazada{
         int tamaño = cadena.size();
         if(tamaño == 13 || tamaño == 9){
             return 1;
-        }else{
-            return 0;
         }
+        return 0;
+        
     }
 
     int validarCorreo(const std::string& email){
@@ -263,8 +282,26 @@ class ListaCirculasDoblementeEnlazada{
 
         if(std::regex_match(email, pattern)){
             return 1;
-        }else{
-            return 0;
         }
+        return 0;
+        
     }
+
+    bool buscarEstudiantes(long long int dpi){
+        Nodo* actual = new Nodo();
+        actual = inicio;
+        if(inicio==NULL){
+            return false;
+        }
+
+        do{
+            if(actual->dpi == dpi){
+                return true;
+            }
+            actual=actual->der;
+        }while(actual != inicio);
+        return false;
+    }
+
+
 };
