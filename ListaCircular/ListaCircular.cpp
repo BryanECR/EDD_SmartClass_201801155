@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Nodo.cpp"
+#include "NodoC.cpp"
 #include <fstream>
 #include <regex>
 
@@ -7,8 +7,8 @@ using namespace std;
 
 class ListaCirculasDoblementeEnlazada{
     private:
-        Nodo* inicio;
-        Nodo* fin;
+        NodoC* inicio;
+        NodoC* fin;
     public:
         ListaCirculasDoblementeEnlazada(){
             inicio = NULL;
@@ -16,7 +16,7 @@ class ListaCirculasDoblementeEnlazada{
         }
 
     void agregar(int carnet,long long int dpi,string nombre,string carrera,string password,int creditos,int edad,string correo){
-        Nodo* nuevo = new Nodo();
+        NodoC* nuevo = new NodoC();
         nuevo->carnet = carnet;
         nuevo->dpi = dpi;
         nuevo->nombre = nombre;
@@ -44,7 +44,7 @@ class ListaCirculasDoblementeEnlazada{
     }
 
     void mostrar(){
-        Nodo* actual = new Nodo();
+        NodoC* actual = new NodoC();
         actual = inicio;
         if(inicio==NULL){
             cout<<"la lista esta vacia"<<endl;
@@ -102,7 +102,7 @@ class ListaCirculasDoblementeEnlazada{
             cout<<"La lista se encuantra vacia"<<endl;
 
         }else{
-            Nodo* actual = inicio;
+            NodoC* actual = inicio;
             opcion = datosParaModificar();
 
             do{
@@ -194,24 +194,24 @@ class ListaCirculasDoblementeEnlazada{
             cout<<"La lista esta vacia"<<endl;
 
         }else if(inicio->dpi == dpi){
-            Nodo* borrarInicio = inicio;
+            NodoC* borrarInicio = inicio;
             inicio = inicio->der;
             inicio->izq == fin;
             cout<<tareaRealizada("eliminar");
             delete borrarInicio;
 
         }else if(fin->dpi == dpi){
-            Nodo* borrarFin = fin;
+            NodoC* borrarFin = fin;
             fin = fin->izq;
             fin->der = inicio;
             cout<<tareaRealizada("eliminar");
             delete borrarFin;
 
         }else{
-            Nodo* actual = inicio;
-            Nodo* anterior;
-            Nodo* siguiente;
-            Nodo* borrar;
+            NodoC* actual = inicio;
+            NodoC* anterior;
+            NodoC* siguiente;
+            NodoC* borrar;
 
             do{
                 if(actual->dpi == dpi){
@@ -231,7 +231,7 @@ class ListaCirculasDoblementeEnlazada{
 
     void graficar(int numero){
         string nombredelagrafica = "Grafica"+to_string(numero);
-        Nodo* actual = new Nodo();
+        NodoC* actual = new NodoC();
         actual = inicio;
         int contador = 0;
         string texto = "";
@@ -264,6 +264,7 @@ class ListaCirculasDoblementeEnlazada{
         std::string str = "dot -Tpng Grafica"+to_string(numero)+".dot -o Grafica"+to_string(numero)+".png";
         const char *cstm = str.c_str();
         system(cstm);
+        cout<<"\n¡Grafica realizada con exito!\n";
     }
 
     int validarCarnetDpi(long long int numero){
@@ -287,15 +288,15 @@ class ListaCirculasDoblementeEnlazada{
         
     }
 
-    bool buscarEstudiantes(long long int dpi){
-        Nodo* actual = new Nodo();
+    bool buscarEstudiantes(long long int depei){
+        NodoC* actual = new NodoC();
         actual = inicio;
         if(inicio==NULL){
             return false;
         }
 
         do{
-            if(actual->dpi == dpi){
+            if(actual->dpi == depei){
                 return true;
             }
             actual=actual->der;
@@ -303,5 +304,19 @@ class ListaCirculasDoblementeEnlazada{
         return false;
     }
 
+    bool buscarPorCarnet(int carnet){
+        NodoC* actual = new NodoC();
+        actual = inicio;
+        if(inicio==NULL){
+            return false;
+        }
 
+        do{
+            if(actual->carnet == carnet){
+                return true;
+            }
+            actual=actual->der;
+        }while(actual != inicio);
+        return false;
+    }
 };

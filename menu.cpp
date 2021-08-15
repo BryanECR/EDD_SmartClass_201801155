@@ -5,12 +5,20 @@
 #include <locale.h>
 #include <stdlib.h>
 #include "ListaCircular/ListaCircular.cpp"
+#include "ListaDoble/ListaDoble.cpp"
 using namespace std;
 
 ListaCirculasDoblementeEnlazada listacircular;
+ListaDoblementeEnlazada listatareas;
+int contadorgraficastareas = 0;
 int contadorgraficaestudiantes = 0;
 
 class Menu{
+
+    void limpiarConsola(){
+        system("pause");
+        system("cls");
+    }
 
     void reportes(){
         int opcion;
@@ -28,7 +36,8 @@ class Menu{
                     contadorgraficaestudiantes+=1;
                  break;
                 case 2:
-                    cout<<"Linealizacion de Tareas"<<endl;
+                    listatareas.graficar(contadorgraficastareas);
+                    contadorgraficastareas+=1;
                  break;
                 case 3:
                     cout<<"Salir"<<endl;
@@ -41,6 +50,8 @@ class Menu{
     }
 
     void ingresoDeTareas(){
+        int mes, dia, hora, carnet,indice;
+        string nombre, descripcion, materia, fecha, estado;
         bool seguir = true;
         
         while(seguir){
@@ -55,12 +66,47 @@ class Menu{
             switch(Opcion){
                 case 1:
                     cout<<" ******* Ingresar tarea ******* \n";
+                    cout<<"Mes: ";
+                    cin>>mes;
+                    cout<<"Dia: ";
+                    cin>>dia;
+                    cout<<"Hora: ";
+                    cin>>hora;
+                    cout<<"Carnet: ";
+                    cin>>carnet;
+                    cin.ignore();
+                    cout<<"Nombre: ";
+                    getline(cin,nombre);
+                    cin.ignore();
+                    cout<<"Descripcion: ";
+                    getline(cin,descripcion);
+                    cin.ignore();
+                    cout<<"Materia: ";
+                    getline(cin,materia);
+                    cout<<"Fecha: ";
+                    cin>>fecha;
+                    cout<<"Estado: ";
+                    cin>>estado;
+                    if(listacircular.buscarPorCarnet(carnet)){
+                        listatareas.agregar(mes,dia,hora,carnet,nombre,descripcion,materia,fecha,estado);
+                        cout<<"\n *Tarea Agregada con exito* \n";
+                    }else{
+                        cout<<"\n*** La tarea no se pudo agregar debido a que en carnet no existe como Estudiante aun ***\n";
+                    }
+
                  break;
                 case 2:
-                    cout<<"Modificar tarea\n";
+                    cout<<"Ingrese el indice de la tarea que desea modificar: ";
+                    cin>>indice;
+                    listatareas.ModificarNodo(indice);
+
+
                  break;
                 case 3:
-                    cout<<"Eliminar tarea\n";
+                    cout<<"Ingrese el indice de la tarea que desea eliminar: ";
+                    cin>>indice;
+                    listatareas.borrarElemento(indice);
+
                  break;
                 case 4:
                     cout<<"¡Hasta la proxima!\n";
@@ -147,6 +193,7 @@ class Menu{
                 case 4:
                     cout<<"¡Hasta la proxima!"<<endl;
                     seguir = false;
+                    
 
                  break;
                 default:
@@ -168,7 +215,6 @@ class Menu{
             cin>>Opcion;
             switch(Opcion){
                 case 1:
-                    cout<<"Usuarios"<<endl;
                     system("cls");
                     ingresoDeUsuarios();
                     

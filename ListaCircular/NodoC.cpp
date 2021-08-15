@@ -1,10 +1,13 @@
 #include <strings.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
 
 using namespace std;
 
-class Nodo{
+class NodoC{
     public:
-        Nodo* izq;
+        NodoC* izq;
         int carnet;
         long long int dpi;
         string nombre;
@@ -13,5 +16,5 @@ class Nodo{
         int creditos;
         int edad;
         string correo;
-        Nodo* der;
+        NodoC* der;
 };

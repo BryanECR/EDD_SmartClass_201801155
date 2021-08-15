@@ -1,4 +1,4 @@
-#include "Nodo.cpp"
+#include "NodoD.cpp"
 #include <iostream>
 #include <fstream>
 
@@ -358,6 +358,7 @@ class ListaDoblementeEnlazada{
         std::string str = "dot -Tpng Grafica"+to_string(numero)+".dot -o Grafica"+to_string(numero)+".png";
         const char *cstm = str.c_str();
         system(cstm);
+        cout<<"\n¡Grafica realizada con exito!\n";
 
     }
 
