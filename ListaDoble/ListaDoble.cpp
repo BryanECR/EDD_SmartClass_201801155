@@ -169,22 +169,34 @@ class ListaDoblementeEnlazada{
                 case 1:
                     cout<<"Ingrese el nuevo valor del mes: ";
                     cin>>mesNuevo;
-                    actual->mes = mesNuevo;
-                    cout<< tareaRealizada("a");
+                    if(validarFechas(mesNuevo,"mes") == 1){
+                        actual->mes = mesNuevo;
+                        cout<< tareaRealizada("a");
+                    }else{
+                        cout<<"\nEl dato no cumple con los parametros requeridos\n";
+                    }                    
                     
                 break;
                 case 2:
                     cout<<"Ingrese el nuevo valor del dia: ";
                     cin>>diaNuevo;
-                    actual->dia = diaNuevo;
-                    cout<< tareaRealizada("a");
+                    if(validarFechas(diaNuevo,"dia") == 1){
+                        actual->dia = diaNuevo;
+                        cout<< tareaRealizada("a");
+                    }else{
+                        cout<<"\nEl dato no cumple con los parametros requeridos\n";
+                    }
                     
                 break;
                 case 3:
                     cout<<"Ingrese el nuevo valor del hora: ";
                     cin>>horaNuevo;
-                    actual->hora = horaNuevo;
-                    cout<< tareaRealizada("a");
+                    if(validarFechas(horaNuevo,"hora") == 1){
+                        actual->hora = horaNuevo;
+                        cout<< tareaRealizada("a");
+                    }else{
+                        cout<<"\nEl dato no cumple con los parametros requeridos\n";
+                    }
 
                 break;
                 case 4:
@@ -301,30 +313,35 @@ class ListaDoblementeEnlazada{
         }
     }
 
-    void reporte(int m, int d, int h, int numero){
+    string reporte(int m, int d, int h, int numero){
         Nodo* actual = inicio;
+        string res="";
+        int contador = 1;
         if(numero == 3){
             do{
                 if(actual->mes == m && actual->dia == d && actual->hora == h){
-                    cout<<"\n*************** TAREA ***************\n";
-                    cout<<"Mes:"+to_string(actual->mes)+"\nDia:"+to_string(actual->dia)+"\nHora:"+to_string(actual->hora)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado;
+                    res+="\n*************** TAREA ***************\n";
+                    res+="Mes:"+to_string(actual->mes)+"\nDia:"+to_string(actual->dia)+"\nHora:"+to_string(actual->hora)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado;
+                    return res;
                     break;
                 }
                 actual = actual->der;
             }while(actual != NULL);
+            return "\nEl Elemento no existe en la lista\n";
 
         }else{
-            int contador = 1;
+            
             do{
                 if(actual->mes == m && actual->dia == d && actual->hora == h){
-                    cout<<"\n*************** TAREA "<<contador<<" ***************\n";
-                    cout<<"Mes:"+to_string(actual->mes)+"\nDia:"+to_string(actual->dia)+"\nHora:"+to_string(actual->hora)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado;
+                    res+="\n*************** TAREA "+to_string(contador)+" ***************\n";
+                    res+="Mes:"+to_string(actual->mes)+"\nDia:"+to_string(actual->dia)+"\nHora:"+to_string(actual->hora)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado;
+                    return res;
                     break;
                 }
                 actual = actual->der;
                 contador+=1;
             }while(actual != NULL);
-
+            return "\n ** El Elemento no existe en la lista **\n";
         }
     }
 
@@ -394,5 +411,23 @@ class ListaDoblementeEnlazada{
                 }
             break;
         }
+    }
+
+    string salida(){
+        Nodo* actual = inicio;
+        string salida="";
+        while(actual!= NULL){
+            salida += "\t¿element type=\"task\"?";
+            salida += "\t\t¿item Carnet = \""+to_string(actual->carnet)+"\"$?";
+            salida += "\t\t¿item Nombre = \""+actual->nombre+"\" $?";
+            salida += "\t\t¿item Descripcion = \""+actual->descripcion+"\" $?";
+            salida += "\t\t¿item Materia = \""+actual->materia+"\" $?";
+            salida += "\t\t¿item Fecha = \""+actual->fecha+"\" $?";
+            salida += "\t\t¿item Hora = \""+to_string(actual->hora)+":00\" $?";
+            salida += "\t\t¿item Estado = \""+actual->estado+"\" $?";
+            salida += "\t¿$element?\n";
+            actual = actual->der;
+        }
+        return salida;
     }
 };

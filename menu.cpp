@@ -6,10 +6,14 @@
 #include <stdlib.h>
 #include "ListaCircular/ListaCircular.cpp"
 #include "ListaDoble/ListaDoble.cpp"
+#include "ListaErrores/listasimple.cpp"
+#include "Matriz/Func.cc"
 using namespace std;
 
 ListaCirculasDoblementeEnlazada listacircular;
 ListaDoblementeEnlazada listatareas;
+ListaSimple errores;
+Func funciones;
 int contadorgraficastareas = 0;
 int contadorgraficaestudiantes = 0;
 
@@ -20,28 +24,75 @@ class Menu{
         system("cls");
     }
 
+
     void reportes(){
-        int opcion;
+        int opcion,mes,dia,hora;
+        string salida="";
         bool seguir = true;
         while(seguir){
             cout<<" ************ REPORTES ************ \n";
             cout<<"       1- Lista de Estudiantes \n";
             cout<<"       2- Linealizacion de Tareas \n";
-            cout<<"       3- salir\n";
+            cout<<"       3- Busqueda en estructura linealizada \n";
+            cout<<"       4- Busqueda de posicion en estructura linealizada \n";
+            cout<<"       5- Cola de Errores \n";
+            cout<<"       6- Generar archivo de salida\n";
+            cout<<"       7- salir\n";
             cout<<"Ingrese la Opcion que desea realizar: ";
             cin>>opcion;
             switch(opcion){
                 case 1:
                     listacircular.graficar(contadorgraficaestudiantes);
                     contadorgraficaestudiantes+=1;
+
                  break;
                 case 2:
                     listatareas.graficar(contadorgraficastareas);
                     contadorgraficastareas+=1;
+
                  break;
                 case 3:
+                    cout<<"Ingrese Los siguientes datos para realizar la busqueda\n";
+                    cout<<"Mes: ";
+                    cin>>mes;
+                    cout<<"Dia: ";
+                    cin>>dia;
+                    cout<<"Hora: ";
+                    cin>>hora;
+                    cout<<listatareas.reporte(mes,dia,hora,3);
+                    limpiarConsola();
+
+                 break;
+                case 4:
+                    cout<<"Ingrese Los siguientes datos para realizar la busqueda\n";
+                    cout<<"Mes: ";
+                    cin>>mes;
+                    cout<<"Dia: ";
+                    cin>>dia;
+                    cout<<"Hora: ";
+                    cin>>hora;
+                    cout<<listatareas.reporte(mes,dia,hora,4);
+                    limpiarConsola();
+
+                 break;
+                case 5:
+                    errores.graficar();
+                    limpiarConsola();
+
+                 break;
+                case 6:
+                    salida +="¿Elements?";
+                    salida += listacircular.Salida();
+                    salida += listatareas.salida();
+                    salida +="¿$Elements?";
+                    funciones.graficar(salida);
+                    limpiarConsola();
+
+                 break;
+                case 7:
                     cout<<"Salir"<<endl;
                     seguir = false;
+
                  break;
                 default:
                    cout<<"Opcion no valida"<<endl;
@@ -87,25 +138,27 @@ class Menu{
                     cin>>fecha;
                     cout<<"Estado: ";
                     cin>>estado;
-                    if(listacircular.buscarPorCarnet(carnet)){
+                    if(listacircular.buscarPorCarnet(carnet) && listatareas.validarFechas(mes,"mes") == 1 && listatareas.validarFechas(dia,"dia") == 1 && listatareas.validarFechas(hora,"h") == 1){
                         listatareas.agregar(mes,dia,hora,carnet,nombre,descripcion,materia,fecha,estado);
                         cout<<"\n *Tarea Agregada con exito* \n";
                     }else{
-                        cout<<"\n*** La tarea no se pudo agregar debido a que en carnet no existe como Estudiante aun ***\n";
+                        cout<<"\n*** La tarea no se pudo agregar debido a que algunos datos estan incorrectos ***\n";
                     }
+                    limpiarConsola();
 
                  break;
                 case 2:
                     cout<<"Ingrese el indice de la tarea que desea modificar: ";
                     cin>>indice;
                     listatareas.ModificarNodo(indice);
-
+                    limpiarConsola();
 
                  break;
                 case 3:
                     cout<<"Ingrese el indice de la tarea que desea eliminar: ";
                     cin>>indice;
                     listatareas.borrarElemento(indice);
+                    limpiarConsola();
 
                  break;
                 case 4:
@@ -159,9 +212,7 @@ class Menu{
                     }else{
                         cout<<"\n **** El usuario no fue agregado debido a errores en la informacion **** \n";
                     }
-                    
-                    system("pause");
-                    system("cls");
+                    limpiarConsola();
 
                  break;
                 case 2:
@@ -173,8 +224,7 @@ class Menu{
                     }else{
                         cout<<"* El usuario no existe o la lista esta vacia *"<<endl;
                     }
-                    system("pause");
-                    system("cls");
+                    limpiarConsola();
 
                  break;
                 case 3:
@@ -186,14 +236,12 @@ class Menu{
                     }else{
                         cout<<"* El usuario no existe o la lista esta vacia *"<<endl;
                     }
-                    system("pause");
-                    system("cls");
+                    limpiarConsola();
                     
                  break;
                 case 4:
                     cout<<"¡Hasta la proxima!"<<endl;
-                    seguir = false;
-                    
+                    seguir = false;                    
 
                  break;
                 default:
@@ -231,13 +279,12 @@ class Menu{
                 cout<<"La opcion que eligio no esta en el menu"<<endl;
 
             }
-        }
-        
+        }        
     }
 
     public:
     void menu(){
-        
+        string ruta;
         bool seguir = true;
         while(seguir){
             int Opcion;
@@ -245,29 +292,38 @@ class Menu{
             cout<<"              1- Carga de Usuarios "<<endl;
             cout<<"              2- Carga de Tareas "<<endl;
             cout<<"              3- Ingreso manual "<<endl;
-            cout<<"              4- Reportes "<<endl;
-            cout<<"              5- Salir "<<endl;
+            cout<<"              4- Mostrar Errores"<<endl;
+            cout<<"              5- Reportes "<<endl;
+            cout<<"              6- Salir "<<endl;
             cout<<"Ingrese por teclado la opcion que desea realizar: ";
             cin>>Opcion;
 
             switch(Opcion){
                 case 1:
-                    cout<<"Caso 1"<<endl;
+                    cin.ignore();
+                    cout<<"Ingrese la ruta del archivo que desea leer";
+                    getline(cin,ruta);
                  break;
                 case 2:
-                    cout<<"caso 2"<<endl;
+                    cin.ignore();
+                    cout<<"Ingrese la ruta del archivo que desea leer";
+                    getline(cin,ruta);
                  break;
                 case 3:
-                    system("cls");
+                    limpiarConsola();
                     ingresoManual();
                     
                  break;
                 case 4:
-                    system("cls");
+                    errores.mostrar();
+                    limpiarConsola();
+                 break;
+                case 5:
+                    limpiarConsola();
                     reportes();
 
                  break;
-                case 5:
+                case 6:
                     cout<<"¡Hasta la proxima!"<<endl;
                     seguir = false;
                  break;
@@ -277,7 +333,6 @@ class Menu{
             }
         }
     }
-
 };
 
 int main(){

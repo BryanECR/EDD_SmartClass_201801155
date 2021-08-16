@@ -319,4 +319,23 @@ class ListaCirculasDoblementeEnlazada{
         }while(actual != inicio);
         return false;
     }
+
+    string Salida(){
+        NodoC* actual = inicio;
+        string salida="";
+        do{
+            salida += "\t¿element type=\"user\"?\n";
+            salida += "\t\t¿item Carnet: \""+to_string(actual->carnet)+"\" $?\n";
+            salida += "\t\t¿item DPI: \""+to_string(actual->dpi)+"\" $?\n";
+            salida += "\t\t¿item Nombre: \""+actual->nombre+"\" $?\n";
+            salida += "\t\t¿item Carrera: \""+actual->carrera+"\" $?\n";
+            salida += "\t\t¿item Password: \""+actual->password+"\" $?\n";
+            salida += "\t\t¿item Creditos: "+to_string(actual->creditos)+" $?\n";
+            salida += "\t\t¿item Edad: "+to_string(actual->edad)+" $?\n";
+            salida += "\t¿$element?";
+            actual = actual->der;
+        }while(actual!= inicio);
+        return salida;
+    }
+
 };

@@ -40,76 +40,31 @@ class Tarea{
     }
 
     string setTarea(){
-        return "Mes: "+to_string(this->mes)+"\nDia: "+to_string(this->dia)+"\nHora: "+to_string(this->hora)+"\nCarnet: "+to_string(this->carnet)+"\nNombre: "+this->nombre+"\nDescripcion "+this->descripcion+"\nMateria: "+this->materia+"\nFecha: "+this->fecha+"\nEstado: "+this->estado;
+        return "Mes: "+to_string(this->mes)+" Dia: "+to_string(this->dia)+" Hora: "+to_string(this->hora)+" Carnet: "+to_string(this->carnet)+" Nombre: "+this->nombre+" Descripcion "+this->descripcion+" Materia: "+this->materia+" Fecha: "+this->fecha+" Estado: "+this->estado;
     }
 };
 
-class FuncionesDeMatrix{
-    public:
-    FuncionesDeMatrix(){}
-
-    int validarFechas(int m, int d,int h){
-        if(m >= 7 && m <= 11 && d >= 1 && d <= 30 && h >= 8 && h <= 16){
-            return 1;
-        }else{
-            return 0;
-        }
-    }
-
-};
 
 
 int main(){
-    /*
-    Tarea matriz3d[2][2][2] = { Tarea() };
-    int contador=0;
-    int mes,dia,h,c;
-    string n,d,m,f,e;
+    
+    Tarea matriz3d[3][2][2] = { Tarea() };
 
-    for(int i=0; i<2 ; i++){
-        for(int j=0; j<2 ; j++){
-            for(int k=0; k<2 ; k++){
-                cout<<"Mes: ";
-                cin>>mes;
-                cout<<"Dia: ";
-                cin>>dia;
-                cout<<"Hora: ";
-                cin>>h;
-                cout<<"Carnet: ";
-                cin>>c;
-                cout<<"Nombre: ";
-                cin>>n;
-                cout<<"Descripcion: ";
-                cin>>d;
-                cout<<"Materia: ";
-                cin>>m;
-                cout<<"Fecha: ";
-                cin>>f;
-                cout<<"Estado: ";
-                cin>>e;
-                matriz3d[i][j][k].getTarea(mes,dia,h,c,n,d,m,f,e);
-            }
-        }
-    }
+    
+    matriz3d[0][0][0].getTarea(8,9,12,201801155,"Bryan","proyecto","EDD","123/15/12","Casi");
+    matriz3d[1][1][0].getTarea(9,10,11,202000156,"Eduardo","proyecto","OCL1","2021/09/05","Casi");
+    matriz3d[2][0][1].getTarea(13,14,15,202108479,"Caal","tarea","Apli1","2021/10/8","Casi");
+     
 
-    for(int i=0; i<2 ; i++){
-        cout<<"nivel "<<i<<endl;
+    for(int i=0; i<3 ; i++){
+        cout<<" *** nivel "<<i<<endl;
         for(int j=0; j<2 ; j++){
             cout<<"fila: "<<j<<endl;
             for(int k=0; k<2 ; k++){
-                cout<<"columna: "<<k<<endl;
+                cout<<"columna: "+to_string(k)+" ";
                 cout<<matriz3d[i][j][k].setTarea()<<endl;
             }
         }
     }
 
-    */
-
-    FuncionesDeMatrix obj;
-   
-    int res = obj.validarFechas(7,25,13);
-    cout<<res<<endl;
-    res = obj.validarFechas(2,25,10);
-    cout<<res<<endl;
-    return 0;
 }
