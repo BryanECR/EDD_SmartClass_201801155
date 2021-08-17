@@ -27,6 +27,30 @@ class Menu{
         system("cls");
     }
 
+    void graficarTareas(){
+        string texto;
+        int numero;
+
+        for(int k=0; k<5 ; k++){
+            texto+="digraph G{\n\tnode [shape=square]\n\ta0 [label=<\n\t\t<TABLE>\n";
+            for(int j=0; j<9 ; j++){
+                texto+="\t\t\t<TR>\n";
+                for(int i=0; i<30 ; i++){
+                    if(Matrix[k][j][i].carnet != 0){
+                        texto+="\t\t\t<TD>"+Matrix[k][j][i].estado+"</TD>\n";
+                    }else{
+                        texto+="\t\t\t<TD>-1</TD>\n";
+                    }
+                }
+                texto+="\t\t\t</TR>\n";
+            }
+            texto+="\t\t</TABLE>>];\n}\n";
+            funciones.graphtask(numero,texto);
+            texto="";
+            numero++;
+        }
+    }
+
     void recorrerMat(){
         string nombre,descripcion,materia,fecha,estado;
         int carnet,mes,hora;
@@ -47,7 +71,6 @@ class Menu{
             }
         }
     }
-
 
     void LecturaEstudiantes(){
         string nombre,carrera,password,correo,ruta,data,item;
@@ -220,11 +243,12 @@ class Menu{
             cout<<" ************ REPORTES ************ \n";
             cout<<"       1- Lista de Estudiantes \n";
             cout<<"       2- Linealizacion de Tareas \n";
-            cout<<"       3- Busqueda en estructura linealizada \n";
-            cout<<"       4- Busqueda de posicion en estructura linealizada \n";
-            cout<<"       5- Cola de Errores \n";
-            cout<<"       6- Generar archivo de salida\n";
-            cout<<"       7- salir\n";
+            cout<<"       3- Graficar Calendario de Tareas\n";
+            cout<<"       4- Busqueda en estructura linealizada \n";
+            cout<<"       5- Busqueda de posicion en estructura linealizada \n";
+            cout<<"       6- Cola de Errores \n";
+            cout<<"       7- Generar archivo de salida\n";
+            cout<<"       8- salir\n";
             cout<<"Ingrese la Opcion que desea realizar: ";
             cin>>opcion;
             switch(opcion){
@@ -238,7 +262,11 @@ class Menu{
                     contadorgraficastareas+=1;
 
                  break;
-                case 3:
+                 case 3:
+                    graficarTareas();
+
+                 break;
+                case 4:
                     cout<<"Ingrese Los siguientes datos para realizar la busqueda\n";
                     cout<<"Mes: ";
                     cin>>mes;
@@ -250,7 +278,7 @@ class Menu{
                     limpiarConsola();
 
                  break;
-                case 4:
+                case 5:
                     cout<<"Ingrese Los siguientes datos para realizar la busqueda\n";
                     cout<<"Mes: ";
                     cin>>mes;
@@ -262,12 +290,12 @@ class Menu{
                     limpiarConsola();
 
                  break;
-                case 5:
+                case 6:
                     errores.graficar();
                     limpiarConsola();
 
                  break;
-                case 6:
+                case 7:
                     salida +="¿Elements?";
                     salida += listacircular.Salida();
                     salida += listatareas.salida();
@@ -276,7 +304,7 @@ class Menu{
                     limpiarConsola();
 
                  break;
-                case 7:
+                case 8:
                     cout<<"Salir"<<endl;
                     seguir = false;
 
@@ -450,7 +478,7 @@ class Menu{
             cin>>Opcion;
             switch(Opcion){
                 case 1:
-                    system("cls");
+                    limpiarConsola();
                     ingresoDeUsuarios();
                     
                 break;
@@ -517,29 +545,3 @@ class Menu{
         }
     }
 };
-
-int main(){
-    Menu m;
-    m.menu();
-
-    return 0;
-}
-
-/*
-                     ´´´´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶´´´´´´´´´´´´´´´
-                     ´´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´´´¶¶¶¶´´´´
-                     ´´´´´´´´´´´´´´´´´´´´´¶¶¶¶¶¶´´´´´´´’’¶¶¶¶¶¶¶¶¶´´´
-                     ´´´´´´´´´´´´´´´´´´´¶¶¶¶¶´´´´´´´´´´´´´´´¶¶¶¶´´´´´
-                     ´´´´´´´´´´´´´´´´´´¶¶¶¶´´´´´´´´´´´´´´´´´´´´´´´´´´
-                     ´´´´´´´´´´´´´´´´´¶¶¶´´´´´´´´´´¶¶¶¶¶¶´´´´´´´´´´´´
-                     ´´´´´´´´´´´´´´´´¶¶¶´´´´´´´´¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´
-                     ´´´´´´´´´´´´´´¶¶¶¶´´´´´´´¶¶¶´´ ´´´´´´´´´¶¶¶´´´´´
-                     ´´´´´´´´´´´´´¶¶¶¶¶´´´´´´´¶¶¶´´´´´¶¶¶ ´´´¶¶¶´´´´´
-                     ´´´´´´´´´´´´¶¶¶¶¶¶´´´´´´´¶¶¶¶´´´ ¶¶¶ ´´´´¶¶¶´´´´
-                     ´´´´´´´´´´¶¶¶¶¶¶¶¶´´´´´´´´¶¶¶¶¶¶¶¶¶ ´´´´¶¶¶´´´´´
-                     ´´´´´´´´´¶¶¶¶´´¶¶¶¶´´´´´´´´´¶¶¶¶¶¶´´´´´¶¶¶´´´´´´
-                     ´´´´´´´´¶¶¶¶´´´´¶¶¶¶´´´´´´´´´´´´´´´´´´¶¶¶¶´´´´´´
-                     ´´´´´¶¶¶¶´´´´´´´¶¶¶¶´´´´´´´´´´´´´´´´¶¶¶¶´´´´´´´´
-                     ´´´´´¶¶¶¶´´´´´´´´´¶¶¶¶¶¶´´´´´´´´´´¶¶¶¶¶´´´´´´´´´
-                     ´´´´¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶´´´´´´´´´´´
-*/

@@ -20,6 +20,25 @@ class Func{
         archivo.close();
     }
 
+    void graphtask(int numero,string cadena){
+        string nombredelagrafica = "Grafica"+to_string(numero);
+        ofstream archivo;
+        archivo.open(nombredelagrafica+".dot",ios::out);
+
+        if(archivo.fail()){
+            cout<<"No se pude abrir el archivo";
+            exit(1);
+        }
+
+        archivo<<cadena;
+        archivo.close();
+        std::string str = "dot -Tpng "+nombredelagrafica+".dot -o Grafica"+nombredelagrafica+".png";
+        const char *cstm = str.c_str();
+        system(cstm);
+        cout<<"\n¡Grafica realizada con exito!\n";
+
+    }
+
     int fechas(int numero, string tipo){
         if(tipo=="Mes"){
             switch(numero){
