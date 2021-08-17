@@ -72,6 +72,57 @@ class Func{
         }
     }
 
-    
+    int fechasInv(int numero, string tipo){
+        if(tipo=="Mes"){
+            switch(numero){
+                case 0:
+                    return 7;
+                break;
+                case 1:
+                    return 8;
+                break;
+                case 2:
+                    return 9;
+                break;
+                case 3:
+                    return 10;
+                break;
+                case 4:
+                    return 11;
+                break;
+            }
+        }else{
+            switch(numero){
+                case 0:
+                    return 8;
+                break;
+                case 1:
+                    return 9;
+                break;
+                case 2:
+                    return 10;
+                break;
+                case 3:
+                    return 11;
+                break;
+                case 4:
+                    return 12;
+                break;
+                case 5:
+                    return 13;
+                break;
+                case 6:
+                    return 14;
+                break;
+                case 7:
+                    return 15;
+                break;
+                case 8:
+                    return 16;
+                break;
+            }
+        }
+    }
+
 };
 

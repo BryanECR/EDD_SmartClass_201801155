@@ -8,11 +8,11 @@
 #include "ListaDoble/ListaDoble.cpp"
 #include "ListaErrores/listasimple.cpp"
 #include "Matriz/Func.cc"
-#include "Matriz/Matriz.cpp"
+#include "Matriz/NodoM.cpp"
 using namespace std;
 
 ListaCirculasDoblementeEnlazada listacircular;
-Tarea Matrix[5][9][30] = { Tarea() };
+NodoM Matrix[5][9][30] = { NodoM() };
 ListaDoblementeEnlazada listatareas;
 int contadorgraficaestudiantes = 0;
 int contadorgraficastareas = 0;
@@ -26,6 +26,28 @@ class Menu{
         system("pause");
         system("cls");
     }
+
+    void recorrerMat(){
+        string nombre,descripcion,materia,fecha,estado;
+        int carnet,mes,hora;
+
+        for(int i=0; i<9; i++){
+            for(int j=0; j<30; j++){
+                for(int k = 0; k<5; k++){
+                    carnet = Matrix[k][i][j].carnet;
+                    nombre = Matrix[k][i][j].nombre;
+                    descripcion = Matrix[k][i][j].descripcion;
+                    materia = Matrix[k][i][j].materia;
+                    fecha = Matrix[k][i][j].fecha;
+                    estado = Matrix[k][i][j].estado;
+                    mes = funciones.fechasInv(k,"Mes");
+                    hora = funciones.fechasInv(i,"Hora");
+                    listatareas.agregar(mes,(j+1),hora,carnet,nombre,descripcion,materia,fecha,estado);
+                }
+            }
+        }
+    }
+
 
     void LecturaEstudiantes(){
         string nombre,carrera,password,correo,ruta,data,item;
@@ -165,7 +187,12 @@ class Menu{
                     }else if(listacircular.buscarPorCarnet(carnet)==false){
                         errores.agregar(carnet,"Tarea","El carnet del estudiante no de encuentra registrado");
                     }else{
-                        Matrix[mes][hora][dia].getTarea(carnet,nombre,descripcion,materia,fecha,estado);
+                        Matrix[mes][hora][dia].carnet = carnet;
+                        Matrix[mes][hora][dia].nombre = nombre;
+                        Matrix[mes][hora][dia].descripcion = descripcion;
+                        Matrix[mes][hora][dia].materia = materia;
+                        Matrix[mes][hora][dia].fecha = fecha;
+                        Matrix[mes][hora][dia].estado = estado;
                     }
                 }
                 
@@ -182,7 +209,7 @@ class Menu{
                 estado = "";
             }
         }
-
+        recorrerMat();
     }
 
     void reportes(){
@@ -333,11 +360,11 @@ class Menu{
     }
 
     void ingresoDeUsuarios(){
+        string nombre,carrera,password,correo;
+        int carnet,creditos,edad,Opcion;
         bool seguir = true;
-        int carnet, creditos, edad, Opcion;
         long long int dpi;
-        string nombre, carrera, password,correo;
-
+        
         while(seguir){
             cout<<endl<<" ******* INGRESO MANUAL DE USUARIOS ******* "<<endl;
             cout<<endl<<"         1- Ingresar un usuario"<< endl;
@@ -470,7 +497,6 @@ class Menu{
                 case 3:
                     limpiarConsola();
                     ingresoManual();
-                    
                  break;
                 case 4:
                     errores.mostrar();
@@ -479,7 +505,6 @@ class Menu{
                 case 5:
                     limpiarConsola();
                     reportes();
-
                  break;
                 case 6:
                     cout<<"¡Hasta la proxima!"<<endl;
