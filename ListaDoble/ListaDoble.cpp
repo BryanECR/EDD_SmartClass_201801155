@@ -1,6 +1,8 @@
 #include "NodoD.cpp"
 #include <iostream>
 #include <fstream>
+#include<sstream>
+#include <string.h>
 
 using namespace std;
 
@@ -413,19 +415,45 @@ class ListaDoblementeEnlazada{
         }
     }
 
+    string changeDate(string date){
+        string var,dia,mes,year;
+        int contador=0;
+        istringstream ss(date);
+
+        while(getline(ss, var, '/')){
+            switch(contador){
+                case 0:
+                    year = var;
+                break;
+                case 1:
+                    mes = var;
+                break;
+                case 2:
+                    dia = var;
+                break;
+            }
+            contador++;
+        }
+
+        return dia+"/"+mes+"/"+year;
+    }
+
     string salida(){
         Nodo* actual = inicio;
         string salida="";
+        
         while(actual!= NULL){
-            salida += "\t¿element type=\"task\"?";
-            salida += "\t\t¿item Carnet = \""+to_string(actual->carnet)+"\"$?";
-            salida += "\t\t¿item Nombre = \""+actual->nombre+"\" $?";
-            salida += "\t\t¿item Descripcion = \""+actual->descripcion+"\" $?";
-            salida += "\t\t¿item Materia = \""+actual->materia+"\" $?";
-            salida += "\t\t¿item Fecha = \""+actual->fecha+"\" $?";
-            salida += "\t\t¿item Hora = \""+to_string(actual->hora)+":00\" $?";
-            salida += "\t\t¿item Estado = \""+actual->estado+"\" $?";
-            salida += "\t¿$element?\n";
+            if(actual->carnet != 0){
+                salida += "\t¿element type=\"task\"?";
+                salida += "\t\t¿item Carnet = \""+to_string(actual->carnet)+"\"$?";
+                salida += "\t\t¿item Nombre = \""+actual->nombre+"\" $?";
+                salida += "\t\t¿item Descripcion = \""+actual->descripcion+"\" $?";
+                salida += "\t\t¿item Materia = \""+actual->materia+"\" $?";
+                salida += "\t\t¿item Fecha = \""+changeDate(actual->fecha)+"\" $?";
+                salida += "\t\t¿item Hora = \""+to_string(actual->hora)+":00\" $?";
+                salida += "\t\t¿item Estado = \""+actual->estado+"\" $?";
+                salida += "\t¿$element?\n";
+            }
             actual = actual->der;
         }
         return salida;
