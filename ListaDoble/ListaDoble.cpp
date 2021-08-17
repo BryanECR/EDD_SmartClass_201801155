@@ -85,13 +85,13 @@ class ListaDoblementeEnlazada{
         cout<<"|              9- Estado               |"<<endl;
         cout<<"Ingrese por teclado la opcion que desea modificar: ";
         cin>>opcion;
-        if(opcion > 7){
+        if(opcion > 9){
             cout<<"Opcion no valida"<<endl;
             valoresparaModificar();
-        }else{
-            return opcion;
         }
-    }
+        return opcion;
+        
+    };
 
     string tareaRealizada(string tarea){
         if(tarea == "eliminar"){

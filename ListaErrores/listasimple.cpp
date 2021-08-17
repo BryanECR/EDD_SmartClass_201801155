@@ -21,7 +21,7 @@ class ListaSimple{
         nuevo->descripcion = descripcion;
 
         if(inicio == NULL){
-            nuevo = inicio;
+            inicio = nuevo;
             inicio->sig = NULL;
             fin = inicio;
         }else{

@@ -8,14 +8,17 @@
 #include "ListaDoble/ListaDoble.cpp"
 #include "ListaErrores/listasimple.cpp"
 #include "Matriz/Func.cc"
+#include "Matriz/Matriz.cpp"
 using namespace std;
 
 ListaCirculasDoblementeEnlazada listacircular;
+Tarea Matrix[5][9][30] = { Tarea() };
 ListaDoblementeEnlazada listatareas;
+int contadorgraficaestudiantes = 0;
+int contadorgraficastareas = 0;
 ListaSimple errores;
 Func funciones;
-int contadorgraficastareas = 0;
-int contadorgraficaestudiantes = 0;
+
 
 class Menu{
 
@@ -24,6 +27,163 @@ class Menu{
         system("cls");
     }
 
+    void LecturaEstudiantes(){
+        string nombre,carrera,password,correo,ruta,data,item;
+        int carnet,creditos,edad,counter,linea,i;
+        long long int dpi;
+        
+        ifstream file;
+        cin.ignore();
+        cout<<"Ingrese la ruta del archivo que desea leer: ";
+        getline(cin,ruta);
+        file.open(ruta, ios::in);
+
+        if(!file.fail()){
+            while(!file.eof()){
+                getline(file, data);
+                istringstream div(data);
+                while(getline(div, item, ',')){
+                    if(linea!=0){
+                        switch(counter){
+                            case 0:
+                                istringstream(item) >> i;
+                                carnet = i;
+                            break;
+                            case 1:
+                                dpi = stoll(item,nullptr,10);
+                            break;
+                            case 2:
+                                nombre = item;
+                            break;
+                            case 3:
+                                carrera = item;
+                            break;
+                            case 4:
+                                password = item;
+                            break;
+                            case 5:
+                                istringstream(item) >> i;
+                                creditos = i;
+                            break;
+                            case 6:
+                                istringstream(item) >> i;
+                                edad = i;
+                            break;
+                            case 7:
+                                correo = item;
+                            break;
+                        }
+                    } 
+                    counter++;
+                }
+                if(linea!=0){
+                    cout<<"Carnet: "+to_string(carnet);
+                    if(listacircular.validarCarnetDpi(carnet)==0){
+                        listacircular.agregar(carnet,dpi,nombre,carrera,password,creditos,edad,correo);
+                        errores.agregar(carnet,"Estudiante","El carnet no presenta el formato debido");
+                    }else if( listacircular.validarCarnetDpi(dpi) == 0){
+                        listacircular.agregar(carnet,dpi,nombre,carrera,password,creditos,edad,correo);
+                        errores.agregar(carnet,"Estudiante","El DPI no presenta el formato debido");
+                    }else if(listacircular.validarCorreo(correo) == 0){
+                        listacircular.agregar(carnet,dpi,nombre,carrera,password,creditos,edad,correo);
+                        errores.agregar(carnet,"Estudiante","El correo no presenta el formato debido");
+                    }else{
+                        listacircular.agregar(carnet,dpi,nombre,carrera,password,creditos,edad,correo);
+                    }
+                }
+                
+                linea++;
+                counter = 0;
+                carnet=0;
+                creditos=0;
+                edad=0;
+                dpi=0;
+                nombre="";
+                carrera="";
+                password="";
+                correo="";
+            }
+        }
+        cout<<"Lectura realizada con exito";
+    }
+
+    void LecturaTareas(){
+        string nombre,descripcion,materia,fecha,estado,ruta,data,item;
+        int mes,dia,hora,carnet,counter,linea,i;
+
+        ifstream file;
+        cin.ignore();
+        cout<<"Ingresar la Ruta: ";
+        getline(cin, ruta);
+        file.open(ruta, ios::in);
+
+        if(!file.fail()){
+            while(!file.eof()){
+                getline(file, data);
+                istringstream div(data);
+                while(getline(div, item, ',')){
+                    if(linea!=0){
+                        switch(counter){
+                            case 0:
+                                i = stoi(item,nullptr,10);
+                                mes = funciones.fechas(i,"Mes");
+                            break;
+                            case 1:
+                                i = stoi(item,nullptr,10);
+                                dia = (i-1);
+                            break;
+                            case 2:
+                                i = stoi(item,nullptr,10);
+                                hora = funciones.fechas(i,"Hora");
+                            break;
+                            case 3:
+                                carnet = stoi(item,nullptr,10);
+                            break;
+                            case 4:
+                                nombre = item;
+                            break;
+                            case 5:
+                                descripcion = item;
+                            break;
+                            case 6:
+                                materia = item;
+                            break;
+                            case 7:
+                                fecha = item;
+                            break;
+                            case 8:
+                                estado = item;
+                            break;
+                        }
+                    } 
+                    
+                    counter++;
+                }
+                if(linea!=0){
+                    if(listatareas.validarFechas(mes,"Mes") == 0 || listatareas.validarFechas(hora,"Hora") == 0 ){
+                        errores.agregar(carnet,"Tarea","La fecha no se encuentra en el rango correcto");
+                    }else if(listacircular.buscarPorCarnet(carnet)==false){
+                        errores.agregar(carnet,"Tarea","El carnet del estudiante no de encuentra registrado");
+                    }else{
+                        Matrix[mes][hora][dia].getTarea(carnet,nombre,descripcion,materia,fecha,estado);
+                    }
+                }
+                
+                linea++;
+                counter = 0;
+                mes = 0;
+                dia = 0;
+                hora = 0;
+                carnet = 0;
+                nombre = "";
+                descripcion = "";
+                materia = "";
+                fecha = "";
+                estado = "";
+            }
+        }
+
+    }
 
     void reportes(){
         int opcion,mes,dia,hora;
@@ -300,14 +460,12 @@ class Menu{
 
             switch(Opcion){
                 case 1:
-                    cin.ignore();
-                    cout<<"Ingrese la ruta del archivo que desea leer";
-                    getline(cin,ruta);
+                    LecturaEstudiantes();
+                    limpiarConsola();
                  break;
                 case 2:
-                    cin.ignore();
-                    cout<<"Ingrese la ruta del archivo que desea leer";
-                    getline(cin,ruta);
+                    LecturaTareas();
+                    limpiarConsola();
                  break;
                 case 3:
                     limpiarConsola();

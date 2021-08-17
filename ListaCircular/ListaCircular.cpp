@@ -40,7 +40,7 @@ class ListaCirculasDoblementeEnlazada{
             inicio->izq=fin;
 
         }
-        cout<<"Se agrego correctamente"<<endl;
+        
     }
 
     void mostrar(){
@@ -240,7 +240,7 @@ class ListaCirculasDoblementeEnlazada{
             cout<<"la lista esta vacia"<<endl;
         }else{
             do{
-                texto+="\tnodo"+to_string(contador)+" [shape=square label=\"Carnet:"+to_string(actual->carnet)+"\nDPI: "+to_string(actual->dpi)+"\nNombre: "+actual->nombre+"\nCarrera: "+actual->carrera+"\nPassword: "+actual->password+"\nCreditos: "+to_string(actual->creditos)+"\nEdad:"+to_string(actual->edad)+"\nCorreo: "+actual->correo+"\"]\n";
+                texto+="\tnodo"+to_string(contador)+" [shape=square label=\"Carnet:"+to_string(actual->carnet)+"\nDPI: "+to_string(actual->dpi)+"\"]\n";
                 actual=actual->der;
                 contador+=1;
             }while(actual != inicio);
