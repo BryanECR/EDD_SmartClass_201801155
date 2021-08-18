@@ -274,7 +274,6 @@ class ListaCirculasDoblementeEnlazada{
             return 1;
         }
         return 0;
-        
     }
 
     int validarCorreo(const std::string& email){
