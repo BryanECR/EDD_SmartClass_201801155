@@ -354,7 +354,7 @@ class ListaDoblementeEnlazada{
         string texto = "";
 
         while(actual!= NULL){
-            texto += "nodo"+to_string(contador)+"[shape=square label=\"Materia: "+actual->materia+"\nEstado: "+actual->estado+"\"]\n";
+            texto += "nodo"+to_string(contador)+"[shape=square label=\"Carnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado+"\"]\n";
         
             contador+=1;
             actual = actual->der;
