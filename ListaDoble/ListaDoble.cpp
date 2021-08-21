@@ -397,45 +397,6 @@ class ListaDoblementeEnlazada{
         }while(actual!= NULL);
     }
 
-
-
-    void graficar(int numero){
-        string nombredelagrafica = "Grafica"+to_string(numero);
-        Nodo* actual = inicio;
-        int contador = 0;
-        string texto = "";
-
-        while(actual!= NULL){
-            if(actual->carnet !=0){
-                texto += "nodo"+to_string(contador)+"[shape=square label=\"ID: "+to_string(contador+1)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado+"\"]\n";
-            }
-            texto += "nodo"+to_string(contador)+"[shape=square label=\"Carnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado+"\"]\n";
-        
-            contador+=1;
-            actual = actual->der;
-        }
-
-        for(int i=0; i<(contador-1); i++){
-            texto += "\nnodo"+to_string(i)+"->nodo"+to_string(i+1)+" [dir=both];";
-        }
-
-        ofstream archivo;
-        archivo.open(nombredelagrafica+".dot",ios::out);
-
-        if(archivo.fail()){
-            cout<<"No se pude abrir el archivo";
-            exit(1);
-        }
-
-        archivo<<"digraph G{\n"+texto+"\n}";
-        archivo.close();
-        std::string str = "dot -Tpng Grafica"+to_string(numero)+".dot -o Grafica"+to_string(numero)+".png";
-        const char *cstm = str.c_str();
-        system(cstm);
-        cout<<"\n¡Grafica realizada con exito!\n";
-
-    }
-
     int validarFechas(int numero, string dato){
         int caso;
         if(dato == "mes"){
