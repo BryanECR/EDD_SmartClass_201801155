@@ -32,14 +32,14 @@ class Menu{
         int numero;
 
         for(int k=0; k<5 ; k++){
-            texto+="digraph G{\n\tnode [shape=square]\n\ta0 [label=<\n\t\t<TABLE>\n";
+            texto+="digraph G{\n\ta0 [shape=square label=<\n\t\t<TABLE border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n";
             for(int j=0; j<9 ; j++){
                 texto+="\t\t\t<TR>\n";
                 for(int i=0; i<30 ; i++){
                     if(Matrix[k][j][i].carnet != 0){
-                        texto+="\t\t\t<TD>"+Matrix[k][j][i].estado+"</TD>\n";
+                        texto+="\t\t\t<TD border=\"1\">"+Matrix[k][j][i].estado+"</TD>\n";
                     }else{
-                        texto+="\t\t\t<TD>-1</TD>\n";
+                        texto+="\t\t\t<TD border=\"1\">-1</TD>\n";
                     }
                 }
                 texto+="\t\t\t</TR>\n";
@@ -122,7 +122,6 @@ class Menu{
                     counter++;
                 }
                 if(linea!=0){
-                    cout<<"Carnet: "+to_string(carnet);
                     if(listacircular.validarCarnetDpi(carnet)==0){
                         listacircular.agregar(carnet,dpi,nombre,carrera,password,creditos,edad,correo);
                         errores.agregar(carnet,"Estudiante","El carnet no presenta el formato debido");
@@ -149,12 +148,13 @@ class Menu{
                 correo="";
             }
         }
-        cout<<"Lectura realizada con exito";
+        cout<<"Lectura realizada con exito"<<endl;
     }
 
     void LecturaTareas(){
         string nombre,descripcion,materia,fecha,estado,ruta,data,item;
-        int mes,dia,hora,carnet,counter,linea,i;
+        int mes,dia,hora,carnet,counter,i;
+        int linea = 0;
 
         ifstream file;
         cin.ignore();
@@ -204,10 +204,8 @@ class Menu{
                     
                     counter++;
                 }
-                if(linea!=0){
-                    if(listatareas.validarFechas(mes,"Mes") == 0 || listatareas.validarFechas(hora,"Hora") == 0 ){
-                        errores.agregar(carnet,"Tarea","La fecha no se encuentra en el rango correcto");
-                    }else if(listacircular.buscarPorCarnet(carnet)==false){
+                if(linea!=0){    
+                    if(listacircular.buscarPorCarnet(carnet)==false){
                         errores.agregar(carnet,"Tarea","El carnet del estudiante no de encuentra registrado");
                     }else{
                         Matrix[mes][hora][dia].carnet = carnet;
@@ -217,6 +215,7 @@ class Menu{
                         Matrix[mes][hora][dia].fecha = fecha;
                         Matrix[mes][hora][dia].estado = estado;
                     }
+                    
                 }
                 
                 linea++;
@@ -233,6 +232,7 @@ class Menu{
             }
         }
         recorrerMat();
+        cout<<"Lectura realizada con exito"<<endl;
     }
 
     void reportes(){
@@ -253,13 +253,13 @@ class Menu{
             cin>>opcion;
             switch(opcion){
                 case 1:
-                    listacircular.graficar(contadorgraficaestudiantes);
-                    contadorgraficaestudiantes+=1;
+                    listacircular.crearTabla(contadorgraficaestudiantes);
+                    contadorgraficaestudiantes++;
 
                  break;
                 case 2:
-                    listatareas.graficar(contadorgraficastareas);
-                    contadorgraficastareas+=1;
+                    listatareas.tablaTareas(contadorgraficastareas);
+                    contadorgraficastareas++;
 
                  break;
                  case 3:
@@ -296,12 +296,18 @@ class Menu{
 
                  break;
                 case 7:
-                    salida +="¿Elements?";
-                    salida += listacircular.Salida();
-                    salida += listatareas.salida();
-                    salida +="¿$Elements?";
-                    funciones.graficar(salida);
-                    limpiarConsola();
+                    if(errores.vacia()){
+                        salida +="¿Elements?";
+                        salida += listacircular.Salida();
+                        salida += listatareas.salida();
+                        salida +="\n¿$Elements?";
+                        funciones.graficar(salida);
+                        limpiarConsola();
+
+                    }else{
+                        cout<<"El archivo de salida no se puede generar hasta que la cola de errores sea corregidas"<<endl;
+                    }
+                    
 
                  break;
                 case 8:
@@ -508,8 +514,9 @@ class Menu{
             cout<<"              2- Carga de Tareas "<<endl;
             cout<<"              3- Ingreso manual "<<endl;
             cout<<"              4- Mostrar Errores"<<endl;
-            cout<<"              5- Reportes "<<endl;
-            cout<<"              6- Salir "<<endl;
+            cout<<"              5- Eliminar el primer error"<<endl;
+            cout<<"              6- Reportes "<<endl;
+            cout<<"              7- Salir "<<endl;
             cout<<"Ingrese por teclado la opcion que desea realizar: ";
             cin>>Opcion;
 
@@ -531,10 +538,14 @@ class Menu{
                     limpiarConsola();
                  break;
                 case 5:
+                    errores.eliminar();
+                    limpiarConsola();
+                 break;
+                case 6:
                     limpiarConsola();
                     reportes();
                  break;
-                case 6:
+                case 7:
                     cout<<"¡Hasta la proxima!"<<endl;
                     seguir = false;
                  break;

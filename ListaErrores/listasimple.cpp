@@ -83,5 +83,20 @@ class ListaSimple{
         system("dot -Tpng GraficaErrores.dot -o GraficaErrores.png");
     }
 
+    bool vacia(){
+        if(inicio==NULL){
+            return true;
+        }
+        return false;
+    }
+
+    void eliminar(){
+        if(inicio==NULL){
+            cout<<"La lista esta vacia"<<endl;
+        }else{
+            inicio = inicio->sig;
+            cout<<"Se elimino el primer error"<<endl;
+        }
+    }
 };
 

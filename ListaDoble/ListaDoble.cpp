@@ -347,6 +347,58 @@ class ListaDoblementeEnlazada{
         }
     }
 
+    void graph(int numero, int gra, string cadena){
+        string nombredelagrafica = "Tareas"+to_string(numero)+to_string(gra);
+        ofstream archivo;
+        archivo.open(nombredelagrafica+".dot",ios::out);
+
+        if(archivo.fail()){
+            cout<<"No se pude abrir el archivo";
+            exit(1);
+        }
+
+        archivo<<cadena;
+        archivo.close();
+        std::string str = "dot -Tpng "+nombredelagrafica+".dot -o "+nombredelagrafica+".png";
+        const char *cstm = str.c_str();
+        system(cstm);
+        cout<<"\n¡Grafica realizada con exito!\n";
+
+    }
+
+    void tablaTareas(int gra){
+        Nodo* actual = inicio;
+        int contador = 1;
+        int limite = 1;
+        int numero = 0;
+        string texto = "digraph G{\n\ta0[shape=square label=<\n\t\t<TABLE border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n";
+
+        do{
+            if(actual->carnet != 0){
+                if((limite%50)!=0){
+                    texto+="\t\t\t<TR>\n";
+                    texto+="\t\t\t<TD border=\"1\">ID: "+to_string(contador)+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+to_string(actual->carnet)+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->descripcion+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->materia+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->fecha+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->estado+"</TD>\n";
+                    texto+="\t\t\t</TR>\n";
+                }else{
+                    texto+="\t\t</TABLE>>];\n}\n";
+                    graph(numero,gra,texto);
+                    texto = "digraph G{\n\ta0[shape=square label=<\n\t\t<TABLE border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n";
+                    numero++;
+                }
+                limite++;
+            }
+            actual = actual->der;
+            contador++;
+        }while(actual!= NULL);
+    }
+
+
+
     void graficar(int numero){
         string nombredelagrafica = "Grafica"+to_string(numero);
         Nodo* actual = inicio;
@@ -354,6 +406,9 @@ class ListaDoblementeEnlazada{
         string texto = "";
 
         while(actual!= NULL){
+            if(actual->carnet !=0){
+                texto += "nodo"+to_string(contador)+"[shape=square label=\"ID: "+to_string(contador+1)+"\nCarnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado+"\"]\n";
+            }
             texto += "nodo"+to_string(contador)+"[shape=square label=\"Carnet: "+to_string(actual->carnet)+"\nNombre: "+actual->nombre+"\nDescripcion: "+actual->descripcion+"\nMateria: "+actual->materia+"\nFecha: "+actual->fecha+"\nEstado: "+actual->estado+"\"]\n";
         
             contador+=1;
@@ -444,7 +499,7 @@ class ListaDoblementeEnlazada{
         
         while(actual!= NULL){
             if(actual->carnet != 0){
-                salida += "\t¿element type=\"task\"?";
+                salida += "\n\t¿element type=\"task\"?";
                 salida += "\t\t¿item Carnet = \""+to_string(actual->carnet)+"\"$?";
                 salida += "\t\t¿item Nombre = \""+actual->nombre+"\" $?";
                 salida += "\t\t¿item Descripcion = \""+actual->descripcion+"\" $?";
@@ -458,4 +513,5 @@ class ListaDoblementeEnlazada{
         }
         return salida;
     }
+
 };

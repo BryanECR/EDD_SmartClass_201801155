@@ -21,7 +21,7 @@ class Func{
     }
 
     void graphtask(int numero,string cadena){
-        string nombredelagrafica = "Grafica"+to_string(numero);
+        string nombredelagrafica = "Calendario"+to_string(numero);
         ofstream archivo;
         archivo.open(nombredelagrafica+".dot",ios::out);
 
@@ -32,7 +32,7 @@ class Func{
 
         archivo<<cadena;
         archivo.close();
-        std::string str = "dot -Tpng "+nombredelagrafica+".dot -o Grafica"+nombredelagrafica+".png";
+        std::string str = "dot -Tpng "+nombredelagrafica+".dot -o "+nombredelagrafica+".png";
         const char *cstm = str.c_str();
         system(cstm);
         cout<<"\n¡Grafica realizada con exito!\n";

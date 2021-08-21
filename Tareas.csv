@@ -1,9 +1,151 @@
 Mes,Dia,Hora,Carnet,Nombre,Descripcion,Materia,Fecha,Estado
 7,1,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
-7,1,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
-7,14,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
-7,14,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
-10,4,9,201901425,Tarea de Lgica,Realizar el resumen del curso de Lgica.,Lgica,2021/10/04,Pendiente
-10,4,11,201704186,Tarea 2 de Fsica 3,Realizar la tarea del curso de Fsica 3.,Fsica 3,2021/10/04,Pendiente
-10,21,8,201501786,Encuesta de Estadstica,Realizar la encuesta del curso de Estadstica 1.,Estadstica 1,2021/10/21,Pendiente
-10,21,13,201700886,Proyecto de Lenguajes,Realizar el proyecto del curso de Lenguajes,Lenguajes Formales y de Programacin,2021/10/21,Pendiente
+7,2,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,3,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,4,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+7,5,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,6,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,7,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,8,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+7,9,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,10,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,11,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,12,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+7,13,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,14,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,15,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,16,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,
+7,17,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,18,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,19,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,20,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+7,21,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,22,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,23,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,24,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+7,25,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,26,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+7,27,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+7,28,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+7,29,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+7,30,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,1,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,2,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,3,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,4,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+8,5,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,6,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,7,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,8,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+8,9,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,10,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,11,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,12,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+8,13,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,14,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,15,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,16,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,
+8,17,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,18,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,19,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,20,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+8,21,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,22,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,23,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,24,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+8,25,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,26,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+8,27,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+8,28,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+8,29,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+8,30,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,1,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,2,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,3,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,4,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+9,5,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,6,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,7,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,8,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+9,9,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,10,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,11,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,12,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+9,13,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,14,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,15,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,16,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,
+9,17,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,18,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,19,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,20,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+9,21,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,22,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,23,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,24,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+9,25,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,26,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+9,27,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+9,28,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+9,29,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+9,30,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,1,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,2,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,3,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,4,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,5,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,6,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,7,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,8,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,9,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,10,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,11,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,12,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,13,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,14,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,15,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,16,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,
+10,17,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,18,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,19,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,20,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,21,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,22,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,23,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,24,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,25,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,26,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+10,27,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+10,28,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+10,29,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+10,30,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,1,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,2,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,3,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,4,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+11,5,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,6,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,7,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,8,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+11,9,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,10,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,11,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,12,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+11,13,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,14,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,15,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,16,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,
+11,17,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,18,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,19,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,20,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+11,21,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,22,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,23,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,24,13,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+11,25,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,26,11,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente
+11,27,10,201704186,Tarea de Estadstica,Realizar la tarea del curso de Estadística 1.,Estadstica 1,2021/07/14,Cumplido
+11,28,16,201700886,Codificar en C++,Realizar la tarea del curso de Estructuras de datos,Estructuras de Datos,2021/07/14,Pendiente
+11,29,8,201901425,Tarea de Matematica,Realizar la tarea del curso de matemtica intermedia 1.,Matemtica Intermedia 1,2021/07/01,Incumplido
+11,30,9,202000786,Tarea de Fisica,Realizar la tarea del curso de Fsica 1.,Fsica 1,2021/07/01,Pendiente

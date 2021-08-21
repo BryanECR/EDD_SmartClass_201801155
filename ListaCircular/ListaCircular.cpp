@@ -229,28 +229,8 @@ class ListaCirculasDoblementeEnlazada{
         }
     }
 
-    void graficar(int numero){
-        string nombredelagrafica = "Grafica"+to_string(numero);
-        NodoC* actual = new NodoC();
-        actual = inicio;
-        int contador = 0;
-        string texto = "";
-
-        if(inicio==NULL){
-            cout<<"la lista esta vacia"<<endl;
-        }else{
-            do{
-                texto+="\tnodo"+to_string(contador)+" [shape=square label=\"Carnet:"+to_string(actual->carnet)+"\nDPI: "+to_string(actual->dpi)+"\"]\n";
-                actual=actual->der;
-                contador+=1;
-            }while(actual != inicio);
-        }
-
-        texto+="nodo0->nodo"+to_string(contador-1)+" [dir=both];";
-        for(int i=0; i<(contador-1); i++){
-            texto+="\nnodo"+to_string(i)+"->nodo"+to_string(i+1)+"[dir=both];";
-        }
-
+    void graph(int numero,string cadena, int gra){
+        string nombredelagrafica = "Estudiantes"+to_string(numero)+to_string(gra);
         ofstream archivo;
         archivo.open(nombredelagrafica+".dot",ios::out);
 
@@ -259,12 +239,49 @@ class ListaCirculasDoblementeEnlazada{
             exit(1);
         }
 
-        archivo<<"digraph G{\n"+texto+"\n}";
+        archivo<<cadena;
         archivo.close();
-        std::string str = "dot -Tpng Grafica"+to_string(numero)+".dot -o Grafica"+to_string(numero)+".png";
+        std::string str = "dot -Tpng "+nombredelagrafica+".dot -o "+nombredelagrafica+".png";
         const char *cstm = str.c_str();
         system(cstm);
         cout<<"\n¡Grafica realizada con exito!\n";
+
+    }
+
+    void crearTabla(int gra){
+        NodoC* actual = new NodoC();
+        actual = inicio;
+        int contador = 1;
+        int numero = 0;
+        string texto = "digraph G{\n\ta0[shape=square label=<\n\t\t<TABLE border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n";
+
+        if(inicio==NULL){
+            cout<<"la lista esta vacia"<<endl;
+        }else{
+
+            do{
+                if((contador%50)!=0){
+                    texto+="\t\t\t<TR>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+to_string(actual->carnet)+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+to_string(actual->dpi)+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->nombre+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->carrera+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->password+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+to_string(actual->creditos)+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+to_string(actual->edad)+"</TD>\n";
+                    texto+="\t\t\t<TD border=\"1\">"+actual->correo+"</TD>\n";
+                    texto+="\t\t\t</TR>\n";
+                    
+                }else{
+                    texto+="\t\t</TABLE>>];\n}\n";
+                    graph(numero,texto,gra);
+                    texto ="digraph G{\n\ta0[shape=square label=<\n\t\t<TABLE border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n";
+                    numero++;
+                }
+                actual=actual->der;
+                contador++;
+            }while(actual != inicio);
+        }
     }
 
     int validarCarnetDpi(long long int numero){
@@ -323,7 +340,7 @@ class ListaCirculasDoblementeEnlazada{
         NodoC* actual = inicio;
         string salida="";
         do{
-            salida += "\t¿element type=\"user\"?\n";
+            salida += "\n\t¿element type=\"user\"?\n";
             salida += "\t\t¿item Carnet: \""+to_string(actual->carnet)+"\" $?\n";
             salida += "\t\t¿item DPI: \""+to_string(actual->dpi)+"\" $?\n";
             salida += "\t\t¿item Nombre: \""+actual->nombre+"\" $?\n";
